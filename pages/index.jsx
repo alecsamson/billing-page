@@ -4,6 +4,7 @@ import Link from 'next/link';
 import styles from '../styles/Home.module.css'
 import Billing from '../components/Billing';
 import Invoices from '../components/Invoices'
+import InvoiceCard from '../components/InvoiceCard'
 
 const invoiceNumbers = [
   {id: 123455},
@@ -29,6 +30,11 @@ export default function Home() {
       </Link>
       </div>
   })}
+  <InvoiceCard />
+  <InvoiceCard />
+  <InvoiceCard />
+  <InvoiceCard />
+  <InvoiceCard />
   </>
   )
 }
