@@ -1,38 +1,39 @@
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import * as React from "react";
+import { styled } from "@mui/material/styles";
+import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
 
 export default function InvoiceCard() {
-return (
-<Card sx={{ width: 300, height: 300,  margin: 1, padding: 1}}>
-    <CardContent>
-
-      <Typography sx={{ fontSize: 14 }} color="text.secondary" >
-      Invoice 00584758868 
-      </Typography>
-
-      <Typography sx={{ fontSize: 14, textAlign: 'right', m: 1  }} color="text.secondary" >
-      Paid 
-      </Typography>
-
-      <Typography variant="h5" component="div">
-        October
-      </Typography>
-
-      <Typography variant="body2">
-      Due on 21/10/2020
-      </Typography>
-
-      <Typography sx={{ textAlign: 'right', m: 1 }}>
-      49,99€
-      </Typography>
-    </CardContent>
-    <CardActions>
-      <Button size="small">Learn More</Button>
-    </CardActions>
-  </Card>
-)
+  return (
+    <Paper sx={{ p: 2, margin: "auto", maxWidth: 500, flexGrow: 1 }}>
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm container>
+          <Grid item xs container direction="column" spacing={2}>
+            <Grid item xs>
+              <Typography gutterBottom variant="subtitle1" component="div">
+                Invoice 00584758868
+              </Typography>
+              <Typography variant="body1" gutterBottom>
+                October
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography sx={{ cursor: "pointer" }} variant="body2">
+                Due on 21/10/2020
+              </Typography>
+            </Grid>
+          </Grid>
+          <Grid item>
+            <Typography variant="subtitle1" component="div">
+              Paid
+            </Typography>
+            <Typography variant="subtitle1" component="div">
+              $19.00
+            </Typography>
+          </Grid>
+        </Grid>
+      </Grid>
+    </Paper>
+  );
 }

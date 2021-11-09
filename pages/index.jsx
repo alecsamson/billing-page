@@ -31,10 +31,10 @@ export default function Home() {
       </div>
   })}
   <InvoiceCard />
+  {/* <InvoiceCard />
   <InvoiceCard />
-  <InvoiceCard />
-  <InvoiceCard />
-  <InvoiceCard />
+  {/* <InvoiceCard /> */}
+  <InvoiceCard /> */}
   </>
   )
 }
