@@ -4,7 +4,6 @@ import Link from 'next/link';
 import styles from '../styles/Home.module.css'
 import Billing from '../components/Billing';
 import Invoices from '../components/Invoices'
-import InvoiceCard from '../components/InvoiceCard'
 
 const invoiceNumbers = [
   {id: 123455},
@@ -20,21 +19,14 @@ export default function Home() {
   <h2>
     Billing
   </h2>
-  <h2>
-    My Invoices
-  </h2>
-  {invoiceNumbers.map((number) => {
+  {/* {invoiceNumbers.map((number) => {
     return <div key={invoiceNumbers.id}>
       <Link as={`/invoices/${number.id}`} href="/invoices/[invoice]">
       <a>{number.id}</a>
       </Link>
       </div>
-  })}
-  <InvoiceCard />
-  {/* <InvoiceCard />
-  <InvoiceCard />
-  {/* <InvoiceCard /> */}
-  <InvoiceCard /> */}
+  })} */}
+  <Invoices />
   </>
   )
 }
