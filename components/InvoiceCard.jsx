@@ -1,8 +1,4 @@
-import * as React from "react";
-import { styled } from "@mui/material/styles";
-import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
+import { Grid, Typography } from "@mui/material";
 
 export default function InvoiceCard() {
   return (
@@ -16,6 +12,7 @@ export default function InvoiceCard() {
         flexGrow: 1,
         boxShadow: 1,
         position: "relative",
+        background: "#ffffff",
       }}
       justifyContent="space-between"
     >
