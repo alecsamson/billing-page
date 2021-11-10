@@ -41,10 +41,12 @@ export default function BillingCard() {
         <Typography variant="body1" gutterBottom sx={{ color: "white" }}>
           Due on 21/10/2020
         </Typography>
-        <Typography variant="body2" sx={{ color: "white" }}>
-          49,99
-          <EuroIcon fontSize="small" />
-        </Typography>
+        <Grid container item sx={{ alignItems: "center" }}>
+          <Typography variant="body2" sx={{ color: "white" }}>
+            49,99
+            <EuroIcon fontSize="small" />
+          </Typography>
+        </Grid>
       </Grid>
     </Grid>
   );

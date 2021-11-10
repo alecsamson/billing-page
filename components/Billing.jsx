@@ -9,27 +9,33 @@ export default function Billing() {
     <Container
       maxWidth="md"
       sx={{
+        p: 2,
         alignItems: "center",
         background: "linear-gradient(90deg, #26A1B7 0%, #0372AE 100%)",
       }}
     >
-      <Grid item sx={{ color: "white" }}>
+      <Grid item container sx={{ color: "white" }} justifyContent="flex-start">
         <ArrowBackIcon color="inherit" />
         <Typography>Billing</Typography>
+      </Grid>
+      <Grid item sx={{ color: "white", alignSelf: "flex-end" }}>
         <HelpIcon color="inherit" />
       </Grid>
 
-      <Grid item>
-        <Typography>Account Balance</Typography>
-
-        <Grid container item sx={{ alignItems: "center" }}>
-          <Typography>49,99</Typography>
+      <Grid container item sx={{ color: "white", justifyContent: "center" }}>
+        <Typography variant="h6">Account Balance</Typography>
+        <Grid
+          container
+          item
+          sx={{ alignItems: "center", justifyContent: "center" }}
+        >
+          <Typography variant="h4">49,99</Typography>
           <EuroIcon fontSize="small" />
         </Grid>
       </Grid>
 
       <BillingCard />
-      <Grid item>
+      <Grid item sx={{ color: "white" }}>
         <Typography>Next invoice will be issued on 21/11/2020.</Typography>
       </Grid>
     </Container>
