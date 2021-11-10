@@ -14,27 +14,34 @@ export default function BillingCard() {
       justifyContent="space-evenly"
     >
       <Grid item>
-        <Typography gutterBottom variant="subtitle1">
+        <Typography gutterBottom variant="subtitle1" sx={{ color: "white" }}>
           Check Icon
         </Typography>
-        <Typography variant="body1" gutterBottom>
+        <Typography variant="body1" gutterBottom sx={{ color: "white" }}>
           Overdue Balance
         </Typography>
-        <Typography sx={{ cursor: "pointer" }} variant="body2">
+        <Typography sx={{ color: "white" }}>
           0<EuroIcon fontSize="small" />
         </Typography>
       </Grid>
+
       <Grid item>
-        <Divider variant="middle" orientation="vertical" />
+        <Divider
+          orientation="vertical"
+          textAlign="center"
+          light="true"
+          sx={{ color: "white", light: "true" }}
+        />
       </Grid>
+
       <Grid item>
-        <Typography gutterBottom variant="subtitle1">
+        <Typography gutterBottom variant="subtitle1" sx={{ color: "white" }}>
           Calendar Icon
         </Typography>
-        <Typography variant="body1" gutterBottom>
+        <Typography variant="body1" gutterBottom sx={{ color: "white" }}>
           Due on 21/10/2020
         </Typography>
-        <Typography sx={{ cursor: "pointer" }} variant="body2">
+        <Typography variant="body2" sx={{ color: "white" }}>
           49,99
           <EuroIcon fontSize="small" />
         </Typography>
