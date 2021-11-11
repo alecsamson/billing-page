@@ -9,34 +9,47 @@ export default function Billing() {
     <Container
       maxWidth="md"
       sx={{
-        p: 2,
+        p: 5,
         alignItems: "center",
         background: "linear-gradient(90deg, #26A1B7 0%, #0372AE 100%)",
       }}
     >
-      <Grid item container sx={{ color: "white" }} justifyContent="flex-start">
-        <ArrowBackIcon color="inherit" />
-        <Typography>Billing</Typography>
-      </Grid>
-      <Grid item sx={{ color: "white", alignSelf: "flex-end" }}>
-        <HelpIcon color="inherit" />
-      </Grid>
+      <Grid container>
+        <Grid
+          container
+          spacing={2}
+          sx={{
+            color: "white",
+            flexDirection: "row",
+            alignItems: "flex-start",
+            justifyContent: "space-between",
+          }}
+        >
+          <ArrowBackIcon color="inherit" />
+          <Typography>Billing</Typography>
+          <HelpIcon color="inherit" sx={{ alignSelf: "flex-end" }} />
+        </Grid>
 
-      <Grid container item sx={{ color: "white", justifyContent: "center" }}>
-        <Typography variant="h6">Account Balance</Typography>
         <Grid
           container
           item
-          sx={{ alignItems: "center", justifyContent: "center" }}
+          sx={{ color: "white", justifyContent: "center", p: 1 }}
         >
-          <Typography variant="h4">49,99</Typography>
-          <EuroIcon fontSize="small" />
+          <Typography variant="h6">Account Balance</Typography>
+          <Grid
+            container
+            item
+            sx={{ alignItems: "center", justifyContent: "center" }}
+          >
+            <Typography variant="h4">49,99</Typography>
+            <EuroIcon fontSize="large" />
+          </Grid>
         </Grid>
-      </Grid>
 
-      <BillingCard />
-      <Grid item sx={{ color: "white" }}>
-        <Typography>Next invoice will be issued on 21/11/2020.</Typography>
+        <BillingCard />
+        <Grid item sx={{ color: "white", p: 1 }}>
+          <Typography>Next invoice will be issued on 21/11/2020.</Typography>
+        </Grid>
       </Grid>
     </Container>
   );

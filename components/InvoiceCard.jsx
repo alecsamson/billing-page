@@ -30,9 +30,19 @@ export default function InvoiceCard() {
 
       <Typography
         variant="subtitle1"
-        sx={{ position: "absolute", border: "1px solid black", right: 0 }}
+        sx={{
+          position: "absolute",
+          color: "white",
+          textTransform: "uppercase",
+          fontWeight: "bold",
+          right: 0,
+          backgroundColor: "#63cefb",
+          borderTopLeftRadius: "10px",
+          borderBottomLeftRadius: "10px",
+          padding: "0 8px",
+        }}
       >
-        Paid
+        Issued
       </Typography>
       <Grid item sx={{ alignSelf: "flex-end" }}>
         <Typography variant="subtitle1">$19.00</Typography>

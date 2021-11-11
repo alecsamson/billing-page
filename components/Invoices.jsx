@@ -8,7 +8,7 @@ export default function Invoices() {
         container
         sx={{
           "&>*+*": { marginTop: "16px" },
-          p: 3,
+          p: 2,
           background: "#f2f5f8",
         }}
         rowSpacing={1}
