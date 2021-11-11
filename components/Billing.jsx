@@ -22,7 +22,6 @@ export default function Billing() {
         sx={{
           color: "white",
           justifyContent: "space-between",
-          position: "fixed",
         }}
       >
         <Box sx={{ display: "flex", alignItems: "center" }}>
