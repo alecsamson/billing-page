@@ -25,7 +25,7 @@ export default function Home() {
       </Link>
       </div>
   })} */}
-      <Invoices />
+      <Invoices key={invoiceNumbers.id} />
     </>
   );
 }
