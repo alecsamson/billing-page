@@ -3,7 +3,7 @@ import { Container, Grid, Typography } from "@mui/material";
 
 export default function Invoices() {
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="xs">
       <Grid
         container
         sx={{

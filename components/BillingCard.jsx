@@ -10,30 +10,21 @@ export default function BillingCard() {
       sx={{
         background: "#419ec1",
         p: 1,
+        flexFlow: "column nowarp",
         margin: "auto",
       }}
       justifyContent="space-evenly"
     >
       <Grid item>
-        <Typography gutterBottom variant="subtitle1" sx={{ color: "white" }}>
-          <CheckIcon />
-        </Typography>
-        <Typography variant="body1" gutterBottom sx={{ color: "white" }}>
+        <CheckIcon sx={{ color: "white" }} />
+        <Typography variant="body1" sx={{ color: "white" }}>
           Overdue Balance
         </Typography>
-        <Typography sx={{ color: "white" }}>
-          0
-          <EuroIcon fontSize="small" />
-        </Typography>
+        <Typography sx={{ color: "white" }}>0&euro;</Typography>
       </Grid>
 
       <Grid item>
-        <Divider
-          orientation="vertical"
-          textAlign="center"
-          light="true"
-          sx={{ color: "white", light: "true" }}
-        />
+        <Divider orientation="vertical" textAlign="center" light sx={{}} />
       </Grid>
 
       <Grid
@@ -44,18 +35,14 @@ export default function BillingCard() {
           justifyContent: "center",
         }}
       >
-        <Typography gutterBottom variant="subtitle1" sx={{ color: "white" }}>
-          <CalendarTodayIcon />
-        </Typography>
-        <Typography variant="body1" gutterBottom sx={{ color: "white" }}>
+        <CalendarTodayIcon sx={{ color: "white" }} />
+
+        <Typography variant="body1" sx={{ color: "white" }}>
           Due on 21/10/2020
         </Typography>
-        <Grid container item sx={{ alignItems: "baseline" }}>
-          <Typography variant="body2" sx={{ color: "white" }}>
-            49,99
-            <EuroIcon fontSize="small" />
-          </Typography>
-        </Grid>
+        <Typography variant="body2" sx={{ color: "white" }}>
+          49,99&euro;
+        </Typography>
       </Grid>
     </Grid>
   );

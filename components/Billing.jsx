@@ -6,28 +6,32 @@ import HelpIcon from "@mui/icons-material/Help";
 
 export default function Billing() {
   return (
-    <Container
-      maxWidth="md"
-      sx={{
-        p: 5,
-        alignItems: "center",
-        background: "linear-gradient(90deg, #26A1B7 0%, #0372AE 100%)",
-      }}
-    >
-      <Grid container>
+    <Container maxWidth="xs">
+      <Grid
+        container
+        maxWidth="xs"
+        sx={{
+          p: 4,
+          alignItems: "center",
+          justifyContent: "center",
+          background: "linear-gradient(90deg, #26A1B7 0%, #0372AE 100%)",
+        }}
+      >
         <Grid
           container
-          spacing={2}
+          xs={12}
           sx={{
             color: "white",
-            flexDirection: "row",
-            alignItems: "flex-start",
+            flexWrap: " nowrap",
             justifyContent: "space-between",
           }}
         >
-          <ArrowBackIcon color="inherit" />
-          <Typography>Billing</Typography>
-          <HelpIcon color="inherit" sx={{ alignSelf: "flex-end" }} />
+          <Grid item xs={8} sx={{ alignItems: "flex - start" }}>
+            <ArrowBackIcon color="inherit" />
+            <Typography>Billing</Typography>
+          </Grid>
+
+          <HelpIcon color="inherit" />
         </Grid>
 
         <Grid
@@ -47,7 +51,8 @@ export default function Billing() {
         </Grid>
 
         <BillingCard />
-        <Grid item sx={{ color: "white", p: 1 }}>
+
+        <Grid item sx={{ color: "white", paddingTop: "10px" }}>
           <Typography>Next invoice will be issued on 21/11/2020.</Typography>
         </Grid>
       </Grid>
