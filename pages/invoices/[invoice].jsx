@@ -12,11 +12,14 @@ export default function Invoice({ href, name }) {
           display: "flex",
           justifyContent: "flex-start",
           alignItems: "center",
-          p: 2.5,
+          p: 3,
         }}
       >
         <ArrowBackIcon />
-        <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+        <Typography
+          variant="h5"
+          sx={{ fontWeight: "bold", paddingLeft: "16px" }}
+        >
           October
         </Typography>
       </Grid>
@@ -43,7 +46,7 @@ export default function Invoice({ href, name }) {
         item
         container
         justifyContent="space-between"
-        sx={{ padding: "16px 8px 0 16px", fontWeight: "bold" }}
+        sx={{ padding: "24px 24px 0 24px", fontWeight: "bold" }}
       >
         <Typography gutterBottom variant="h8">
           Plan details
@@ -51,7 +54,7 @@ export default function Invoice({ href, name }) {
         <Typography variant="h8"> Amount </Typography>
       </Grid>
 
-      <Grid container justifyContent="space-between" sx={{ p: 2 }}>
+      <Grid container justifyContent="space-between" sx={{ p: "8px 24px" }}>
         <Grid item>
           <Typography variant="body1" gutterBottom>
             ILIMITADA 30
@@ -68,10 +71,10 @@ export default function Invoice({ href, name }) {
         container
         sx={{
           borderTop: "2px solid #e7e7e7",
-          m: 5,
+          margin: "0 24px",
           fontWeight: "bold",
           paddingTop: "25px",
-          fontSize: "25px",
+          fontSize: "20px",
           p: 2,
         }}
         justifyContent="space-between"
@@ -81,10 +84,16 @@ export default function Invoice({ href, name }) {
       </Grid>
 
       <Typography
+        align="center"
         sx={{
+          display: "flex",
+          justifyContent: "center",
+          margin: "0 24px",
+          padding: 2,
+          width: "100%",
           border: "1px solid black",
           borderRadius: "30px",
-          padding: "15px 25rem",
+          // padding: "15px 25rem",
           fontWeight: "bold",
         }}
       >
