@@ -1,7 +1,7 @@
 import InvoiceCard from "./InvoiceCard";
 import { Container, Grid, Typography } from "@mui/material";
 
-export default function Invoices() {
+export default function Invoices(props) {
   return (
     <Grid
       container
@@ -18,13 +18,15 @@ export default function Invoices() {
       <Typography variant="body1" gutterBottom sx={{ alignSelf: "flex-start" }}>
         <strong>My invoices</strong>
       </Typography>
-      <InvoiceCard />
-      <InvoiceCard />
-      <InvoiceCard />
-      <InvoiceCard />
-      <InvoiceCard />
-      <InvoiceCard />
-      <InvoiceCard />
+      {props.invoiceIds.map((number) => {
+        return (
+          <InvoiceCard
+            key={number.id}
+            id={number.id}
+            href="/invoices/[invoice]"
+          />
+        );
+      })}
     </Grid>
   );
 }
