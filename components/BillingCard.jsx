@@ -33,7 +33,7 @@ export default function BillingCard() {
       <Typography component="div" align="center" sx={{ color: "white" }}>
         <CalendarTodayIcon />
         <Typography variant="body1">Due on 21/10/2020</Typography>
-        <Typography variant="body2">49,99&euro;</Typography>
+        <Typography variant="body2">49,99 &euro;</Typography>
       </Typography>
     </Grid>
   );
