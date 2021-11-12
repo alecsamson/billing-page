@@ -3,12 +3,12 @@ import Link from "next/link";
 
 export default function InvoiceCard(props) {
   return (
-    <Link href={props.href}>
+    <Link href={props.href} as={`/invoices/${props.id}`}>
       <Grid
         item
         container
         sx={{
-          p: 2,
+          p: 3,
           margin: "auto",
           maxWidth: 500,
           flexGrow: 1,
