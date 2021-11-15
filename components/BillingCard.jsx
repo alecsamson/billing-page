@@ -8,6 +8,7 @@ export default function BillingCard() {
     <Grid
       container
       sx={{
+        display: { xl: "none", xs: "flex" },
         background: "#419ec1",
         p: 1,
         margin: "auto",

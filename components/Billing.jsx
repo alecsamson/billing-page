@@ -8,7 +8,6 @@ export default function Billing() {
   return (
     <Grid
       container
-      maxWidth="xs"
       sx={{
         p: 4,
         alignItems: "center",

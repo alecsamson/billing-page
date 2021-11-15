@@ -8,7 +8,8 @@ export default function Invoices(props) {
       sx={{
         "&>*+*": { marginTop: "16px" },
         background: "#f2f5f8",
-        p: 3,
+        p: 2,
+        maxHeight: "100%",
       }}
       rowSpacing={1}
       direction="column"
