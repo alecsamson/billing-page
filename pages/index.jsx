@@ -5,6 +5,7 @@ import styles from "../styles/Home.module.css";
 import Billing from "../components/Billing";
 import MyInvoices from "../components/MyInvoices";
 import DesktopSidebar from "../components/DesktopSidebar";
+import DesktopFooter from "../components/DesktopFooter";
 import { Container, Typography, Grid } from "@mui/material";
 
 const invoiceNumbers = [
@@ -17,12 +18,18 @@ const invoiceNumbers = [
 
 export default function Home() {
   return (
-    <Grid container sx={{ height: "100%", width: "100%" }}>
-      <DesktopSidebar sx={{ display: { xs: "none", md: "flex" } }} />
-      <Grid container sx={{ width: "80%" }}>
+    <Grid
+      container
+      sx={{ height: "100%", width: "100%", position: "relative" }}
+    >
+      <DesktopSidebar
+        sx={{ display: { xs: "none", md: "none", lg: "flex" } }}
+      />
+      <Grid item sx={{ width: "80%" }}>
         <Billing />
         <MyInvoices invoiceIds={invoiceNumbers} />
       </Grid>
+      <DesktopFooter />
     </Grid>
   );
 }
