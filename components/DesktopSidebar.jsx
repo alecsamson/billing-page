@@ -10,7 +10,7 @@ export default function DesktopSidebar() {
     <Grid
       container
       sx={{
-        width: "20%",
+        width: "15%",
         flexDirection: "column",
         justifyContent: "flex-start",
       }}

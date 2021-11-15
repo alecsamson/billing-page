@@ -25,7 +25,7 @@ export default function Home() {
       <DesktopSidebar
         sx={{ display: { xs: "none", md: "none", lg: "flex" } }}
       />
-      <Grid item sx={{ width: "80%" }}>
+      <Grid item sx={{ width: "85%" }}>
         <Billing />
         <MyInvoices invoiceIds={invoiceNumbers} />
       </Grid>

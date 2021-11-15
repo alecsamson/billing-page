@@ -11,7 +11,6 @@ export default function Invoices(props) {
         p: "2rem 12rem",
         maxHeight: "100%",
       }}
-      rowSpacing={1}
       direction="column"
       alignItems="center"
       justifyContent="center"
