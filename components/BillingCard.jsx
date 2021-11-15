@@ -8,7 +8,6 @@ export default function BillingCard() {
     <Grid
       container
       sx={{
-        display: { xl: "none", xs: "flex" },
         background: "#419ec1",
         p: 1,
         margin: "auto",
@@ -20,7 +19,7 @@ export default function BillingCard() {
         <Typography variant="body1" sx={{ color: "white" }}>
           Overdue Balance
         </Typography>
-        <Typography>0&euro;</Typography>
+        <Typography>0{"\u20AC"}</Typography>
       </Typography>
 
       <Divider
@@ -34,7 +33,7 @@ export default function BillingCard() {
       <Typography component="div" align="center" sx={{ color: "white" }}>
         <CalendarTodayIcon />
         <Typography variant="body1">Due on 21/10/2020</Typography>
-        <Typography variant="body2">49,99 &euro;</Typography>
+        <Typography variant="body2">49,99{"\u20AC"}</Typography>
       </Typography>
     </Grid>
   );

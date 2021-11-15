@@ -25,7 +25,7 @@ export default function InvoiceCard(props) {
           <Typography variant="body1" gutterBottom>
             <strong>October</strong>
           </Typography>
-          <Typography sx={{ cursor: "pointer" }} variant="body2">
+          <Typography variant="body2">
             Due on <strong>21/10/2020</strong>
           </Typography>
         </Grid>
@@ -47,7 +47,7 @@ export default function InvoiceCard(props) {
           Issued
         </Typography>
         <Grid item sx={{ alignSelf: "flex-end" }}>
-          <Typography variant="subtitle1">$19.00</Typography>
+          <Typography variant="subtitle1">19.00{"\u20AC"}</Typography>
         </Grid>
       </Grid>
     </Link>
