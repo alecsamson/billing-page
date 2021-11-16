@@ -2,6 +2,7 @@ import { Box, Grid, Typography } from "@mui/material";
 
 export default function DesktopFooter() {
   return (
+    // <Box sx={{ display: { xs: "none", md: "flex", lg: "flex", xl: "flex" } }}>
     <Grid
       container
       sx={{
@@ -24,5 +25,6 @@ export default function DesktopFooter() {
         Viasat Internet is a service provided by Viasat Europe Sarl.
       </Typography>
     </Grid>
+    // </Box>
   );
 }

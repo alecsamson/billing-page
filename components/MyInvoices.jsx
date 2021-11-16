@@ -22,6 +22,10 @@ export default function Invoices(props) {
           <InvoiceCard
             key={number.id}
             id={number.id}
+            price={number.price}
+            status={number.status}
+            date={number.date}
+            color={number.statusColor}
             href="/invoices/[invoice]"
           />
         );
