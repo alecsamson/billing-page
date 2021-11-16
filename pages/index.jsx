@@ -6,7 +6,7 @@ import Billing from "../components/Billing";
 import MyInvoices from "../components/MyInvoices";
 import DesktopSidebar from "../components/DesktopSidebar";
 import DesktopFooter from "../components/DesktopFooter";
-import { Container, Typography, Grid } from "@mui/material";
+import { Container, Typography, Grid, Box } from "@mui/material";
 
 const invoiceNumbers = [
   { id: 123455123455 },
