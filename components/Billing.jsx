@@ -4,7 +4,7 @@ import EuroIcon from "@mui/icons-material/Euro";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import HelpIcon from "@mui/icons-material/Help";
 
-export default function Billing() {
+export default function Billing(props) {
   return (
     <Grid
       container
@@ -41,15 +41,17 @@ export default function Billing() {
           item
           sx={{ alignItems: "center", justifyContent: "center" }}
         >
-          <Typography variant="h4">49,99</Typography>
+          <Typography variant="h4">174,97</Typography>
           <EuroIcon fontSize="large" />
         </Grid>
       </Grid>
 
-      <BillingCard />
+      <BillingCard invoice={props.invoiceIds} />
 
       <Grid item sx={{ color: "white", paddingTop: "10px" }}>
-        <Typography>Next invoice will be issued on 21/11/2020.</Typography>
+        <Typography>
+          Next invoice will be issued on {props.invoiceIds[0].date}.
+        </Typography>
       </Grid>
     </Grid>
   );

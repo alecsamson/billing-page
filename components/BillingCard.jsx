@@ -3,7 +3,7 @@ import EuroIcon from "@mui/icons-material/Euro";
 import CheckIcon from "@mui/icons-material/Check";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 
-export default function BillingCard() {
+export default function BillingCard(props) {
   return (
     <Grid
       container
@@ -19,7 +19,12 @@ export default function BillingCard() {
         <Typography variant="body1" sx={{ color: "white" }}>
           Overdue Balance
         </Typography>
-        <Typography>0{"\u20AC"}</Typography>
+        <Typography>
+          {props.invoice
+            .map((obj) => (obj.status == "overdue" ? obj.price : ""))
+            .reduce((prev, curr) => Number(prev) + Number(curr))}
+          {"\u20AC"}
+        </Typography>
       </Typography>
 
       <Divider
@@ -32,8 +37,11 @@ export default function BillingCard() {
 
       <Typography component="div" align="center" sx={{ color: "white" }}>
         <CalendarTodayIcon />
-        <Typography variant="body1">Due on 21/10/2020</Typography>
-        <Typography variant="body2">49,99{"\u20AC"}</Typography>
+        <Typography variant="body1">Due on {props.invoice[0].date}</Typography>
+        <Typography variant="body2">
+          {props.invoice[0].price}
+          {"\u20AC"}
+        </Typography>
       </Typography>
     </Grid>
   );
