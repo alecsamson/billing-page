@@ -51,6 +51,20 @@ const invoiceNumbers = [
     statusColor: "#7DBE00",
     date: "21/07/2020",
   },
+  {
+    id: 567890567890,
+    price: 49.99,
+    status: "paid",
+    statusColor: "#7DBE00",
+    date: "21/06/2020",
+  },
+  {
+    id: 456789456789,
+    price: 49.99,
+    status: "paid",
+    statusColor: "#7DBE00",
+    date: "21/07/2020",
+  },
 ];
 
 export default function Home() {
