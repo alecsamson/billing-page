@@ -3,33 +3,22 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import EuroIcon from "@mui/icons-material/Euro";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import HelpIcon from "@mui/icons-material/Help";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 export default function Billing(props) {
   return (
     <Grid
       container
       sx={{
+        position: "sticky",
+        top: "72px",
         p: 4,
         alignItems: "center",
         justifyContent: "center",
         background: "linear-gradient(90deg, #26A1B7 0%, #0372AE 100%)",
       }}
     >
-      <Grid
-        item
-        container
-        sx={{
-          color: "white",
-          justifyContent: "space-between",
-        }}
-      >
-        <Box sx={{ display: "flex", alignItems: "center" }}>
-          <ArrowBackIcon />
-          <Typography>Billing</Typography>
-        </Box>
-        <HelpIcon />
-      </Grid>
-
       <Grid
         container
         item

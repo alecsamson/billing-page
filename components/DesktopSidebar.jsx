@@ -30,10 +30,11 @@ export default function DesktopSidebar() {
           p: 2,
           background: "#014656",
           alignItems: "column",
+          justifyContent: "center",
           color: "white",
         }}
       >
-        <Grid item>
+        <Grid item sx={{ height: "5rem" }}>
           <Typography>
             Alex Garcia
             <br /> alex.garcia@gmail.com
