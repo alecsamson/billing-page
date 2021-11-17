@@ -51,34 +51,6 @@ const invoiceNumbers = [
     statusColor: "#7DBE00",
     date: "21/07/2020",
   },
-  {
-    id: 567890567890,
-    price: 49.99,
-    status: "paid",
-    statusColor: "#7DBE00",
-    date: "21/06/2020",
-  },
-  {
-    id: 567890567890,
-    price: 49.99,
-    status: "paid",
-    statusColor: "#7DBE00",
-    date: "21/06/2020",
-  },
-  {
-    id: 567890567890,
-    price: 49.99,
-    status: "paid",
-    statusColor: "#7DBE00",
-    date: "21/06/2020",
-  },
-  {
-    id: 567890567890,
-    price: 49.99,
-    status: "paid",
-    statusColor: "#7DBE00",
-    date: "21/06/2020",
-  },
 ];
 
 export default function Home() {
@@ -95,7 +67,7 @@ export default function Home() {
           marginLeft: matches ? 0 : "auto",
         }}
       >
-        <BillingHeader sx={{ position: "sticky" }} />
+        <BillingHeader />
         <Billing invoiceIds={invoiceNumbers} />
 
         <MyInvoices invoiceIds={invoiceNumbers} />

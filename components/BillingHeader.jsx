@@ -10,6 +10,7 @@ export default function BillingHeader() {
       sx={{
         position: "sticky",
         top: "0",
+        zIndex: 10,
         padding: "32px 32px 16px 32px",
         alignItems: "center",
         justifyContent: "center",

@@ -17,6 +17,7 @@ export default function Billing(props) {
         alignItems: "center",
         justifyContent: "center",
         background: "linear-gradient(90deg, #26A1B7 0%, #0372AE 100%)",
+        zIndex: 10,
       }}
     >
       <Grid
