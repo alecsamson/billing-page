@@ -4,14 +4,19 @@ import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalance
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import ContactSupportOutlinedIcon from "@mui/icons-material/ContactSupportOutlined";
 import PowerSettingsNewOutlinedIcon from "@mui/icons-material/PowerSettingsNewOutlined";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 export default function DesktopSidebar() {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("xs"));
   return (
     <Grid
       container
       sx={{
         // width: "21.7rem",
-        width: "15rem",
+        display: { xs: "none", md: "flex" },
+        width: matches ? 0 : "15rem",
         position: "fixed",
         height: "calc(100vh - 56px)",
         flexDirection: "column",

@@ -4,6 +4,8 @@ import MyInvoices from "../components/MyInvoices";
 import DesktopSidebar from "../components/DesktopSidebar";
 import DesktopFooter from "../components/DesktopFooter";
 import { Container, Typography, Grid, Box } from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 const invoiceNumbers = [
   {
@@ -44,14 +46,17 @@ const invoiceNumbers = [
 ];
 
 export default function Home() {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
     <Grid container sx={{ height: "100%", width: "100%" }}>
       <DesktopSidebar />
       <Grid
         item
         sx={{
-          width: "calc(100vw - 15rem)",
-          marginLeft: "auto",
+          width: matches ? "100vw" : "calc(100vw - 15rem)",
+          marginLeft: matches ? 0 : "auto",
         }}
       >
         <Billing invoiceIds={invoiceNumbers} />
