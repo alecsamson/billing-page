@@ -9,14 +9,13 @@ import { useTheme } from "@mui/material/styles";
 
 export default function DesktopSidebar() {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("xs"));
+  const matches = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <Grid
       container
       sx={{
         // width: "21.7rem",
-        display: { xs: "none", md: "flex" },
-        width: matches ? 0 : "15rem",
+
         position: "fixed",
         height: "calc(100vh - 56px)",
         flexDirection: "column",
