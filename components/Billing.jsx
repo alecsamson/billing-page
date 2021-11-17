@@ -1,18 +1,19 @@
 import BillingCard from "./BillingCard";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import EuroIcon from "@mui/icons-material/Euro";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import HelpIcon from "@mui/icons-material/Help";
+
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
 export default function Billing(props) {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <Grid
       container
       sx={{
-        position: "sticky",
-        top: "72px",
+        position: matches ? "static" : "sticky",
+        top: matches ? "auto" : "72px",
         p: 4,
         alignItems: "center",
         justifyContent: "center",
