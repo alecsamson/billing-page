@@ -51,12 +51,7 @@ export default function Home() {
 
   return (
     <Grid container sx={{ height: "100%", width: "100%" }}>
-      <DesktopSidebar
-        sx={{
-          display: { xs: "none", md: "flex" },
-          width: matches ? 0 : "15rem",
-        }}
-      />
+      <DesktopSidebar />
       <Grid
         item
         sx={{
