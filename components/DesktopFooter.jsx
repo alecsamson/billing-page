@@ -6,7 +6,8 @@ export default function DesktopFooter() {
     <Grid
       container
       sx={{
-        position: "absolute",
+        display: { xs: "none", md: "flex" },
+        position: "fixed",
         width: "100%",
         bottom: 0,
         p: 2,
@@ -19,9 +20,7 @@ export default function DesktopFooter() {
       <Typography sx={{ padding: "0 56px" }}>T&C</Typography>
       <Typography sx={{ padding: "0 56px" }}>Privacy Policy</Typography>
 
-      <Typography
-        sx={{ alignSelf: "flex - end ", position: "absolute", right: 24 }}
-      >
+      <Typography sx={{ marginLeft: "auto" }}>
         Viasat Internet is a service provided by Viasat Europe Sarl.
       </Typography>
     </Grid>

@@ -10,7 +10,10 @@ export default function DesktopSidebar() {
     <Grid
       container
       sx={{
-        width: "15%",
+        // width: "21.7rem",
+        width: "15rem",
+        position: "fixed",
+        height: "calc(100vh - 56px)",
         flexDirection: "column",
         justifyContent: "flex-start",
       }}
@@ -19,7 +22,6 @@ export default function DesktopSidebar() {
         item
         container
         sx={{
-          position: "relative",
           p: 2,
           background: "#014656",
           alignItems: "column",

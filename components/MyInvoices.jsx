@@ -14,7 +14,7 @@ export default function Invoices(props) {
       alignItems="center"
       justifyContent="center"
     >
-      <Typography variant="body1" gutterBottom sx={{ alignSelf: "flex-start" }}>
+      <Typography variant="body1" align="center" gutterBottom>
         <strong>My invoices</strong>
       </Typography>
       {props.invoiceIds.map((number) => {

@@ -1,6 +1,3 @@
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import Billing from "../components/Billing";
 import MyInvoices from "../components/MyInvoices";
@@ -48,12 +45,15 @@ const invoiceNumbers = [
 
 export default function Home() {
   return (
-    <Grid
-      container
-      sx={{ height: "100%", width: "100%", position: "relative" }}
-    >
+    <Grid container sx={{ height: "100%", width: "100%" }}>
       <DesktopSidebar />
-      <Grid item sx={{ width: "85%" }}>
+      <Grid
+        item
+        sx={{
+          width: "calc(100vw - 15rem)",
+          marginLeft: "auto",
+        }}
+      >
         <Billing invoiceIds={invoiceNumbers} />
         <MyInvoices invoiceIds={invoiceNumbers} />
       </Grid>
