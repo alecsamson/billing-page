@@ -47,9 +47,13 @@ export default function Invoices(props) {
           );
         })}
       </Grid>
-      <Grid item sx={{ right: 0 }}>
-        <DesktopInvoiceCard />
-      </Grid>
+      {matches ? (
+        ""
+      ) : (
+        <Grid item sx={{ right: 0 }}>
+          <DesktopInvoiceCard />
+        </Grid>
+      )}
     </Grid>
   );
 }

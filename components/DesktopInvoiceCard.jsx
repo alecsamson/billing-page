@@ -1,4 +1,5 @@
 import { Grid, Typography, Container } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 
 export default function DesktopInvoiceCard() {
   return (
@@ -15,15 +16,18 @@ export default function DesktopInvoiceCard() {
         <Typography
           sx={{
             display: "flex",
-            margin: "0 24px",
-            padding: 2,
+
+            padding: "16px 0",
             width: "100%",
             color: "#08a5ab",
             fontWeight: "bold",
+            justifyContent: "space-between",
           }}
         >
           View invoice as PDF
+          <CloseIcon sx={{ color: "black" }} />
         </Typography>
+
         <Typography component="div">
           <Typography variant="body1" sx={{ color: "#707b83" }}>
             Invoice number
@@ -47,7 +51,7 @@ export default function DesktopInvoiceCard() {
         item
         container
         justifyContent="space-between"
-        sx={{ padding: "24px 24px 0 24px", fontWeight: "bold" }}
+        sx={{ padding: "0 24px ", fontWeight: "bold" }}
       >
         <Typography gutterBottom variant="h8">
           Plan details
