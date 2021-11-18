@@ -1,4 +1,5 @@
 import InvoiceCard from "./InvoiceCard";
+import DesktopInvoiceCard from "./DesktopInvoiceCard";
 import { Container, Grid, Typography } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
@@ -12,12 +13,12 @@ export default function Invoices(props) {
       sx={{
         background: "#f2f5f8",
       }}
-      direction="column"
-      alignItems="center"
-      justifyContent="center"
+      direction="row"
     >
       <Grid
         item
+        container
+        direction="column"
         sx={{
           "&>*+*": { marginTop: "16px" },
           p: 3,
@@ -28,7 +29,7 @@ export default function Invoices(props) {
           variant="body1"
           align="left"
           gutterBottom
-          sx={{ marginLeft: matches ? "2rem" : "5rem" }}
+          sx={{ marginLeft: matches ? "1rem" : "2rem" }}
         >
           <strong>My invoices</strong>
         </Typography>
@@ -45,6 +46,9 @@ export default function Invoices(props) {
             />
           );
         })}
+      </Grid>
+      <Grid item sx={{ right: 0 }}>
+        <DesktopInvoiceCard />
       </Grid>
     </Grid>
   );

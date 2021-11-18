@@ -10,7 +10,7 @@ export default function InvoiceCard(props) {
           sx={{
             p: 2,
             margin: "auto",
-            maxWidth: 500,
+            maxWidth: "100%",
             flexGrow: 1,
             boxShadow: 1,
             position: "relative",

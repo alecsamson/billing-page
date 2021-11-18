@@ -5,7 +5,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 export default function Invoice({ href, name }) {
   const router = useRouter();
   return (
-    <Grid container sx={{}} justifyContent="space-around">
+    <Grid container justifyContent="space-around">
       <Grid
         container
         sx={{
