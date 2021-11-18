@@ -15,27 +15,29 @@ export default function DesktopSidebar() {
     <Grid
       container
       sx={{
-        // width: "21.7rem",
         display: { xs: "none", sm: "flex" },
         width: matches ? 0 : "15rem",
         position: "fixed",
         flexDirection: "column",
-        justifyContent: "flex-start",
       }}
     >
       <Grid
         item
         container
         sx={{
-          p: 2,
           background: "#014656",
           alignItems: "column",
           justifyContent: "center",
           color: "white",
         }}
       >
-        <Grid item sx={{ height: "5rem" }}>
-          <Typography sx={{}}>
+        <Grid
+          item
+          sx={{ height: "5rem", alignSelf: "flex-end", margin: "1rem 0" }}
+        >
+          <Typography
+            sx={{ marginTop: "2rem", marginRight: "1rem", left: "1" }}
+          >
             Alex Garcia
             <br /> alex.garcia@gmail.com
           </Typography>
