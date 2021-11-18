@@ -21,7 +21,7 @@ export default function Invoices(props) {
         direction="column"
         sx={{
           "&>*+*": { marginTop: "16px" },
-          p: 3,
+          p: 1,
           width: matches ? "100%" : "70%",
         }}
       >
@@ -29,7 +29,7 @@ export default function Invoices(props) {
           variant="body1"
           align="left"
           gutterBottom
-          sx={{ marginLeft: matches ? "1rem" : "2rem" }}
+          sx={{ marginLeft: matches ? "1rem" : "2rem", paddingTop: "1rem" }}
         >
           <strong>My invoices</strong>
         </Typography>
