@@ -1,8 +1,12 @@
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import HelpIcon from "@mui/icons-material/Help";
 import { Box, Container, Grid, Typography } from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 export default function BillingHeader() {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <Grid
       item
@@ -21,10 +25,17 @@ export default function BillingHeader() {
       }}
     >
       <Box sx={{ display: "flex", alignItems: "center" }}>
-        <ArrowBackIcon />
-        <Typography>Billing</Typography>
+        {matches ? <ArrowBackIcon /> : ""}
+        <Typography
+          sx={{
+            fontSize: matches ? "10px" : "32px",
+            fontWeight: matches ? "normal" : "bold",
+          }}
+        >
+          Billing
+        </Typography>
       </Box>
-      <HelpIcon />
+      {matches ? <HelpIcon /> : ""}
     </Grid>
   );
 }
