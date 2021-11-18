@@ -15,7 +15,7 @@ export default function Billing(props) {
         sx={{
           position: matches ? "static" : "sticky",
           top: matches ? "auto" : "72px",
-          padding: "8px 32px 32px 32px",
+          padding: matches ? "8px 32px 32px 32px" : "16px 32px 58px 32px",
           alignItems: "center",
           justifyContent: matches ? "center" : "space-evenly",
           background: "linear-gradient(90deg, #26A1B7 0%, #0372AE 100%)",

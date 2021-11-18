@@ -1,20 +1,28 @@
 import { Container, Grid, Typography, Divider } from "@mui/material";
-import EuroIcon from "@mui/icons-material/Euro";
 import CheckIcon from "@mui/icons-material/Check";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
+
 export default function BillingCard(props) {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <Grid
       container
       sx={{
         background: "#419ec1",
-        p: 1,
+        padding: matches ? "8px" : "52px 64px",
         margin: "auto",
       }}
-      justifyContent="space-evenly"
+      justifyContent="space-around"
     >
-      <Typography component="div" align="center" sx={{ color: "white" }}>
+      <Typography
+        component="div"
+        align="center"
+        sx={{ color: "white", padding: "0 24px" }}
+      >
         <CheckIcon />
         <Typography variant="body1" sx={{ color: "white" }}>
           Overdue Balance
@@ -35,7 +43,11 @@ export default function BillingCard(props) {
         sx={{ borderColor: "white" }}
       />
 
-      <Typography component="div" align="center" sx={{ color: "white" }}>
+      <Typography
+        component="div"
+        align="center"
+        sx={{ color: "white", padding: "0 24px" }}
+      >
         <CalendarTodayIcon />
         <Typography variant="body1">Due on {props.invoice[0].date}</Typography>
         <Typography variant="body2">
