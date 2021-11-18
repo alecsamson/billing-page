@@ -9,41 +9,57 @@ export default function Billing(props) {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("sm"));
   return (
-    <Grid
-      container
-      sx={{
-        position: matches ? "static" : "sticky",
-        top: matches ? "auto" : "72px",
-        p: 4,
-        alignItems: "center",
-        justifyContent: "center",
-        background: "linear-gradient(90deg, #26A1B7 0%, #0372AE 100%)",
-        zIndex: 10,
-      }}
-    >
+    <>
       <Grid
         container
-        item
-        sx={{ color: "white", justifyContent: "center", p: 1 }}
+        sx={{
+          position: matches ? "static" : "sticky",
+          top: matches ? "auto" : "72px",
+          padding: "8px 32px 32px 32px",
+          alignItems: "center",
+          justifyContent: matches ? "center" : "space-evenly",
+          background: "linear-gradient(90deg, #26A1B7 0%, #0372AE 100%)",
+          zIndex: 10,
+        }}
       >
-        <Typography variant="h6">Account Balance</Typography>
-        <Grid
-          container
-          item
-          sx={{ alignItems: "center", justifyContent: "center" }}
-        >
-          <Typography variant="h4">174,97</Typography>
-          <EuroIcon fontSize="large" />
+        <Grid item>
+          <Grid
+            item
+            container
+            sx={{ color: "white", justifyContent: "center", p: 1 }}
+          >
+            <Typography variant="h6">Account Balance</Typography>
+            <Grid
+              container
+              item
+              sx={{ alignItems: "center", justifyContent: "center" }}
+            >
+              <Typography variant="h4">174,97</Typography>
+              <EuroIcon fontSize="large" />
+            </Grid>
+          </Grid>
+
+          {matches ? <BillingCard invoice={props.invoiceIds} /> : ""}
+
+          <Grid
+            item
+            container
+            sx={{
+              color: "white",
+              paddingTop: "10px",
+              justifyContent: "center",
+            }}
+          >
+            <Typography>
+              Next invoice will be issued on {props.invoiceIds[0].date}.
+            </Typography>
+          </Grid>
+        </Grid>
+
+        <Grid item>
+          {matches ? "" : <BillingCard invoice={props.invoiceIds} />}
         </Grid>
       </Grid>
-
-      <BillingCard invoice={props.invoiceIds} />
-
-      <Grid item sx={{ color: "white", paddingTop: "10px" }}>
-        <Typography>
-          Next invoice will be issued on {props.invoiceIds[0].date}.
-        </Typography>
-      </Grid>
-    </Grid>
+    </>
   );
 }

@@ -11,6 +11,7 @@ export default function BillingHeader() {
         position: "sticky",
         top: "0",
         zIndex: 10,
+        height: "5rem",
         padding: "32px 32px 16px 32px",
         alignItems: "center",
         justifyContent: "center",

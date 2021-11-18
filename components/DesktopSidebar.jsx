@@ -35,7 +35,7 @@ export default function DesktopSidebar() {
         }}
       >
         <Grid item sx={{ height: "5rem" }}>
-          <Typography>
+          <Typography sx={{}}>
             Alex Garcia
             <br /> alex.garcia@gmail.com
           </Typography>
