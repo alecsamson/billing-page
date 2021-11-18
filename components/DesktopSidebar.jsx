@@ -36,10 +36,16 @@ export default function DesktopSidebar() {
           sx={{ height: "5rem", alignSelf: "flex-end", margin: "1rem 0" }}
         >
           <Typography
-            sx={{ marginTop: "2rem", marginRight: "1rem", left: "1" }}
+            sx={{
+              marginTop: "2rem",
+              marginRight: "1rem",
+              fontWeight: "bold",
+            }}
           >
             Alex Garcia
-            <br /> alex.garcia@gmail.com
+          </Typography>
+          <Typography sx={{ color: "#ccdadd" }}>
+            alex.garcia@gmail.com
           </Typography>
         </Grid>
         <Grid item sx={{ position: "absolute", right: 64, top: 8 }}>
