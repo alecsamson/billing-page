@@ -28,7 +28,7 @@ export default function BillingHeader() {
         {matches ? <ArrowBackIcon /> : ""}
         <Typography
           sx={{
-            fontSize: matches ? "10px" : "32px",
+            fontSize: matches ? "24px" : "32px",
             fontWeight: matches ? "normal" : "bold",
           }}
         >

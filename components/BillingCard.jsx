@@ -14,9 +14,10 @@ export default function BillingCard(props) {
       sx={{
         background: "#419ec1",
         padding: matches ? "8px" : "52px 64px",
+        flexWrap: matches ? "nowrap" : "wrap",
         margin: "auto",
+        justifyContent: matches ? "center" : "space-around",
       }}
-      justifyContent="space-around"
     >
       <Typography
         component="div"

@@ -56,9 +56,13 @@ export default function Billing(props) {
           </Grid>
         </Grid>
 
-        <Grid item>
-          {matches ? "" : <BillingCard invoice={props.invoiceIds} />}
-        </Grid>
+        {matches ? (
+          ""
+        ) : (
+          <Grid item>
+            <BillingCard invoice={props.invoiceIds} />
+          </Grid>
+        )}
       </Grid>
     </>
   );
