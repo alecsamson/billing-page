@@ -69,7 +69,7 @@ const invoiceNumbers = [
 
 export default function Home() {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("sm"));
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <Grid container sx={{ height: "100%", width: "100%" }}>

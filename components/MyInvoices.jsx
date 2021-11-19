@@ -6,7 +6,7 @@ import { useTheme } from "@mui/material/styles";
 
 export default function Invoices(props) {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("sm"));
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Grid
       container
