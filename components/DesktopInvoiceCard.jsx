@@ -2,6 +2,9 @@ import { Grid, Typography, Container } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
 export default function DesktopInvoiceCard(props) {
+  const splitDate = props.date.split("/");
+  const initialDate = `${splitDate[0]}/0${splitDate[1] - 1}/${splitDate[2]}`;
+
   return (
     <Grid
       container
@@ -36,16 +39,16 @@ export default function DesktopInvoiceCard(props) {
             Invoice number
           </Typography>
           <Typography variant="body2" sx={{ color: "#32424e" }}>
-            {props.number}
+            {props.id}
           </Typography>
         </Typography>
 
         <Typography component="div" align="center">
           <Typography variant="body1" sx={{ color: "#707b83" }}>
-            Due date{" "}
+            Due date
           </Typography>
           <Typography variant="body2" sx={{ color: "#32424e" }}>
-            21/10/2020
+            {props.date}
           </Typography>
         </Typography>
       </Grid>
@@ -67,10 +70,12 @@ export default function DesktopInvoiceCard(props) {
           <Typography variant="body1" gutterBottom>
             ILIMITADA 30
           </Typography>
-          <Typography variant="body2">21/09/2020 - 21/10/2020</Typography>
+          <Typography variant="body2">
+            {initialDate} - {props.date}
+          </Typography>
         </Grid>
         <Grid item>
-          <Typography variant="subtitle1">$49.00</Typography>
+          <Typography variant="subtitle1">{props.price}&euro;</Typography>
         </Grid>
       </Grid>
 
@@ -88,7 +93,7 @@ export default function DesktopInvoiceCard(props) {
         justifyContent="space-between"
       >
         <Typography variant="h8">Sub Total</Typography>
-        <Typography variant="h8">49,99&euro;</Typography>
+        <Typography variant="h8">{props.price}&euro;</Typography>
       </Grid>
     </Grid>
   );

@@ -9,7 +9,8 @@ export default function Invoices(props) {
   const theme = useTheme();
   const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
 
-  const [isToggled, setIsToggled] = useState(true);
+  let [isToggled, setIsToggled] = useState([true, {}]);
+  console.log(props.invoiceIds.find((el) => el.id === isToggled[1]));
 
   console.log("is toggled? " + isToggled);
   return (
@@ -29,7 +30,7 @@ export default function Invoices(props) {
           sx={{
             "&>*+*": { marginTop: "16px" },
             p: 1,
-            width: isBelowThreshold ? "100%" : isToggled ? "100%" : "70%",
+            width: isBelowThreshold ? "100%" : isToggled[0] ? "100%" : "70%",
           }}
         >
           <Typography
@@ -47,7 +48,7 @@ export default function Invoices(props) {
           {props.invoiceIds.map((number) => {
             return (
               <InvoiceCard
-                onClick={() => setIsToggled(!isToggled)}
+                onClick={() => setIsToggled([!isToggled[0], number])}
                 key={number.id}
                 id={number.id}
                 price={number.price}
@@ -59,15 +60,15 @@ export default function Invoices(props) {
             );
           })}
         </Grid>
-        {!isToggled && (
+        {!isToggled[0] && (
           <Grid item xs={4}>
             <DesktopInvoiceCard
-              onClick={() => setIsToggled(!isToggled)}
-              key={props.invoiceIds.id}
-              id={props.invoiceIds.id}
-              price={props.invoiceIds.price}
-              status={props.invoiceIds.status}
-              date={props.invoiceIds.date}
+              onClick={() => setIsToggled(!isToggled[0])}
+              key={isToggled[1].id}
+              id={isToggled[1].id}
+              price={isToggled[1].price}
+              status={isToggled[1].status}
+              date={isToggled[1].date}
             />
           </Grid>
         )}
