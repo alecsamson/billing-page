@@ -6,6 +6,10 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
 export default function Billing(props) {
+  const splitDate = props.invoiceIds[0].date.split("/");
+  const initialDate = `${splitDate[0]}/${Number(splitDate[1]) + 1}/${
+    splitDate[2]
+  }`;
   const theme = useTheme();
   const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
   return (
@@ -53,7 +57,7 @@ export default function Billing(props) {
             }}
           >
             <Typography>
-              Next invoice will be issued on {props.invoiceIds[0].date}.
+              Next invoice will be issued on {initialDate}.
             </Typography>
           </Grid>
         </Grid>
