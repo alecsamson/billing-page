@@ -8,11 +8,10 @@ import { useState } from "react";
 export default function Invoices(props) {
   const theme = useTheme();
   const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
+  // console.log(props.invoiceIds[0]);
+  // console.log(typeof props.invoiceIds[0].id);
+  let [isToggled, setIsToggled] = useState([true, props.invoiceIds[0].id]);
 
-  let [isToggled, setIsToggled] = useState([true, {}]);
-  console.log(props.invoiceIds.find((el) => el.id === isToggled[1]));
-
-  console.log("is toggled? " + isToggled);
   return (
     <Box sx={{ display: "flex", flexDirection: "row" }}>
       <Grid
@@ -55,7 +54,7 @@ export default function Invoices(props) {
                 status={number.status}
                 date={number.date}
                 color={number.statusColor}
-                href="/invoices/${props.id}"
+                href="/invoices/${number.id}"
               />
             );
           })}

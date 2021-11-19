@@ -1,5 +1,5 @@
 import BillingCard from "./BillingCard";
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import EuroIcon from "@mui/icons-material/Euro";
 
 import useMediaQuery from "@mui/material/useMediaQuery";

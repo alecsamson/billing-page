@@ -1,9 +1,16 @@
 import { useRouter } from "next/router";
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-export default function Invoice({ href, name }) {
+export default function Invoice(props) {
   const router = useRouter();
+  const { query } = useRouter();
+  console.log("my props are" + props.state);
+
+  const myArray = props.state.find((item) => item.id == query.id);
+
+  console.log("my props array is " + myArray);
+
   return (
     <Grid container justifyContent="space-around">
       <Grid
@@ -33,7 +40,7 @@ export default function Invoice({ href, name }) {
       >
         <Typography component="div" sx={{ color: "white" }}>
           <Typography variant="body1">Invoice number</Typography>
-          <Typography variant="body2">{router.query.invoice}</Typography>
+          <Typography variant="body2">{query.id}</Typography>
         </Typography>
 
         <Typography component="div" align="center" sx={{ color: "white" }}>
