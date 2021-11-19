@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function InvoiceCard(props) {
   return (
-    <Link href={props.href} as={`/invoices/${props.id}`} passHref>
+    <Link href={props.href} passHref>
       <Container>
         <Grid
           container

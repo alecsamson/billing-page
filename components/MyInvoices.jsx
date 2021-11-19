@@ -12,6 +12,7 @@ export default function Invoices(props) {
       container
       sx={{
         background: "#f2f5f8",
+        paddingBottom: matches ? "32px" : "64px",
       }}
       direction="row"
     >
@@ -42,14 +43,12 @@ export default function Invoices(props) {
               status={number.status}
               date={number.date}
               color={number.statusColor}
-              href="/invoices/[invoice]"
+              href="/invoices/${props.id}"
             />
           );
         })}
       </Grid>
-      {matches ? (
-        ""
-      ) : (
+      {!matches && (
         <Grid item sx={{ right: 0 }}>
           <DesktopInvoiceCard />
         </Grid>
