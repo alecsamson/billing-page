@@ -15,7 +15,7 @@ export default function Invoice({ href, name }) {
           p: 3,
         }}
       >
-        <ArrowBackIcon />
+        <ArrowBackIcon type="button" onClick={() => router.back()} />
         <Typography
           variant="h5"
           sx={{ fontWeight: "bold", paddingLeft: "16px" }}
