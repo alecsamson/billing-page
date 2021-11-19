@@ -4,6 +4,22 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
 export default function InvoiceCard(props) {
+  const splitDate = props.date.split("/");
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
   const { push } = useRouter();
   const theme = useTheme();
   const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
@@ -28,7 +44,7 @@ export default function InvoiceCard(props) {
             Invoice {props.id}
           </Typography>
           <Typography variant="body1" gutterBottom>
-            <strong>October</strong>
+            <strong>{months[Number(splitDate[1] - 1)]}</strong>
           </Typography>
           <Typography variant="body2">
             Due on <strong>{props.date}</strong>
