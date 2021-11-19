@@ -4,12 +4,13 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 export default function Invoice(props) {
   const router = useRouter();
-  const { query } = useRouter();
-  console.log("my props are" + props.state);
+  const { query } = router;
 
-  const myArray = props.state.find((item) => item.id == query.id);
-
-  console.log("my props array is " + myArray);
+  const myArray = props.state.find((item) => item.id == query.invoice);
+  const splitDate = myArray.date.split("/");
+  const initialDate = `${splitDate[0]}/0${splitDate[1] - 1}/${splitDate[2]}`;
+  // console.log("my props array is " + JSON.stringify(myArray, undefined, 2));
+  // console.table(myArray);
 
   return (
     <Grid container justifyContent="space-around">
@@ -40,12 +41,12 @@ export default function Invoice(props) {
       >
         <Typography component="div" sx={{ color: "white" }}>
           <Typography variant="body1">Invoice number</Typography>
-          <Typography variant="body2">{query.id}</Typography>
+          <Typography variant="body2">{myArray.id}</Typography>
         </Typography>
 
         <Typography component="div" align="center" sx={{ color: "white" }}>
           <Typography variant="body1">Due date </Typography>
-          <Typography variant="body2">21/10/2020</Typography>
+          <Typography variant="body2">{myArray.date}</Typography>
         </Typography>
       </Grid>
 
@@ -66,10 +67,15 @@ export default function Invoice(props) {
           <Typography variant="body1" gutterBottom>
             ILIMITADA 30
           </Typography>
-          <Typography variant="body2">21/09/2020 - 21/10/2020</Typography>
+          <Typography variant="body2">
+            {initialDate} - {myArray.date}
+          </Typography>
         </Grid>
         <Grid item>
-          <Typography variant="subtitle1">$49.00</Typography>
+          <Typography variant="subtitle1">
+            {myArray.price}
+            {"\u20AC"}
+          </Typography>
         </Grid>
       </Grid>
 
@@ -87,7 +93,7 @@ export default function Invoice(props) {
         justifyContent="space-between"
       >
         <Typography variant="h8">Sub Total</Typography>
-        <Typography variant="h8">49,99&euro;</Typography>
+        <Typography variant="h8">{myArray.price}&euro;</Typography>
       </Grid>
 
       <Typography
@@ -100,7 +106,6 @@ export default function Invoice(props) {
           width: "100%",
           border: "1px solid black",
           borderRadius: "30px",
-          // padding: "15px 25rem",
           fontWeight: "bold",
         }}
       >

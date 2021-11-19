@@ -54,7 +54,7 @@ export default function Invoices(props) {
                 status={number.status}
                 date={number.date}
                 color={number.statusColor}
-                href="/invoices/${number.id}"
+                href={`/invoices/${number.id}`}
               />
             );
           })}

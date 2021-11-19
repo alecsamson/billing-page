@@ -22,6 +22,7 @@ export default function InvoiceCard(props) {
 
   const { push } = useRouter();
   const theme = useTheme();
+  console.log(props.href);
   const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Container
