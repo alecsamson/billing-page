@@ -9,7 +9,7 @@ export default function Invoices(props) {
   const theme = useTheme();
   const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
 
-  let [isToggled, setIsToggled] = useState([true, props.invoiceIds[0].id]);
+  let [isToggled, setIsToggled] = useState([true, props.invoiceIds[0]]);
 
   return (
     <Box sx={{ display: "flex", flexDirection: "row" }}>
