@@ -20,6 +20,7 @@ export default function Invoices(props) {
       <Grid
         item
         container
+        xs={8}
         direction="column"
         sx={{
           "&>*+*": { marginTop: "16px" },
@@ -53,7 +54,7 @@ export default function Invoices(props) {
         })}
       </Grid>
       {!isBelowThreshold && (
-        <Grid item sx={{ right: 0 }}>
+        <Grid item xs={4}>
           <DesktopInvoiceCard />
         </Grid>
       )}

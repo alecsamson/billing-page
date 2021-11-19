@@ -5,12 +5,16 @@ export default function DesktopInvoiceCard() {
   return (
     <Grid
       container
-      justifyContent="space-around"
       sx={{
+        position: "sticky",
+        zIndex: 10,
+        right: 0,
+        top: 336.5,
         maxWidth: "22rem",
         backgroundColor: " #FFFFFF",
         marginTop: "4.2rem",
       }}
+      justifyContent="space-around"
     >
       <Grid container sx={{ p: 2.5 }} justifyContent="space-between">
         <Typography

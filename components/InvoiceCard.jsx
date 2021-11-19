@@ -1,6 +1,5 @@
 import { Grid, Typography, Container } from "@mui/material";
 import { useRouter } from "next/router";
-import Link from "next/link";
 
 export default function InvoiceCard(props) {
   const { push } = useRouter();
@@ -12,7 +11,6 @@ export default function InvoiceCard(props) {
           p: 2,
           margin: "auto",
           maxWidth: "100%",
-          flexGrow: 1,
           boxShadow: 1,
           position: "relative",
           background: "#ffffff",
