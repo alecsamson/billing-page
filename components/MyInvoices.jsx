@@ -3,10 +3,12 @@ import DesktopInvoiceCard from "./DesktopInvoiceCard";
 import { Container, Grid, Typography } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
+import { useState } from "react";
 
 export default function Invoices(props) {
   const theme = useTheme();
   const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
+  const [isToggled, setIsToggled] = useState(false);
   return (
     <Grid
       container
@@ -42,6 +44,7 @@ export default function Invoices(props) {
         {props.invoiceIds.map((number) => {
           return (
             <InvoiceCard
+              onClick={() => setIsToggled(!isToggled)}
               key={number.id}
               id={number.id}
               price={number.price}
@@ -53,7 +56,7 @@ export default function Invoices(props) {
           );
         })}
       </Grid>
-      {!isBelowThreshold && (
+      {!isBelowThreshold && isToggled && (
         <Grid item xs={4}>
           <DesktopInvoiceCard />
         </Grid>
