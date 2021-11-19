@@ -1,6 +1,6 @@
 import InvoiceCard from "./InvoiceCard";
 import DesktopInvoiceCard from "./DesktopInvoiceCard";
-import { Container, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import { useState } from "react";
@@ -8,59 +8,70 @@ import { useState } from "react";
 export default function Invoices(props) {
   const theme = useTheme();
   const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
-  const [isToggled, setIsToggled] = useState(false);
+
+  const [isToggled, setIsToggled] = useState(true);
+
+  console.log("is toggled? " + isToggled);
   return (
-    <Grid
-      container
-      sx={{
-        maxWidth: "calc()",
-        background: "#f2f5f8",
-        paddingBottom: isBelowThreshold ? "32px" : "64px",
-      }}
-      direction="row"
-    >
+    <Box sx={{ display: "flex", flexDirection: "row" }}>
       <Grid
         item
         container
-        xs={8}
         direction="column"
         sx={{
-          "&>*+*": { marginTop: "16px" },
-          p: 1,
-          width: isBelowThreshold ? "100%" : "70%",
+          background: "#f2f5f8",
+          paddingBottom: isBelowThreshold ? "32px" : "64px",
         }}
       >
-        <Typography
-          variant="body1"
-          align="left"
-          gutterBottom
+        <Grid
+          item
+          xs={8}
           sx={{
-            marginLeft: isBelowThreshold ? "1rem" : "2rem",
-            paddingTop: "1rem",
+            "&>*+*": { marginTop: "16px" },
+            p: 1,
+            width: isBelowThreshold ? "100%" : isToggled ? "100%" : "70%",
           }}
         >
-          <strong>My invoices</strong>
-        </Typography>
-        {props.invoiceIds.map((number) => {
-          return (
-            <InvoiceCard
-              onClick={() => setIsToggled(!isToggled)}
-              key={number.id}
-              id={number.id}
-              price={number.price}
-              status={number.status}
-              date={number.date}
-              color={number.statusColor}
-              href="/invoices/${props.id}"
-            />
-          );
-        })}
-      </Grid>
-      {!isBelowThreshold && isToggled && (
-        <Grid item xs={4}>
-          <DesktopInvoiceCard />
+          <Typography
+            variant="body1"
+            align="left"
+            gutterBottom
+            sx={{
+              marginLeft: isBelowThreshold ? "1rem" : "2rem",
+              paddingTop: "1rem",
+            }}
+          >
+            <strong>My invoices</strong>
+          </Typography>
+
+          {props.invoiceIds.map((number) => {
+            return (
+              <InvoiceCard
+                onClick={() => setIsToggled(!isToggled)}
+                key={number.id}
+                id={number.id}
+                price={number.price}
+                status={number.status}
+                date={number.date}
+                color={number.statusColor}
+                href="/invoices/${props.id}"
+              />
+            );
+          })}
         </Grid>
-      )}
-    </Grid>
+        {!isToggled && (
+          <Grid item xs={4}>
+            <DesktopInvoiceCard
+              onClick={() => setIsToggled(!isToggled)}
+              key={props.invoiceIds.id}
+              id={props.invoiceIds.id}
+              price={props.invoiceIds.price}
+              status={props.invoiceIds.status}
+              date={props.invoiceIds.date}
+            />
+          </Grid>
+        )}
+      </Grid>
+    </Box>
   );
 }

@@ -1,10 +1,16 @@
 import { Grid, Typography, Container } from "@mui/material";
 import { useRouter } from "next/router";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 export default function InvoiceCard(props) {
   const { push } = useRouter();
+  const theme = useTheme();
+  const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
   return (
-    <Container onClick={() => push(props.href)}>
+    <Container
+      onClick={isBelowThreshold ? () => push(props.href) : props.onClick}
+    >
       <Grid
         container
         sx={{
