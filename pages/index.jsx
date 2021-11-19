@@ -69,7 +69,7 @@ const invoiceNumbers = [
 
 export default function Home() {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <Grid container sx={{ height: "100%", width: "100%" }}>
@@ -77,8 +77,8 @@ export default function Home() {
       <Grid
         item
         sx={{
-          width: matches ? "100vw" : "calc(100vw - 15rem)",
-          marginLeft: matches ? 0 : "auto",
+          width: isBelowThreshold ? "100vw" : "calc(100vw - 15rem)",
+          marginLeft: isBelowThreshold ? 0 : "auto",
         }}
       >
         <BillingHeader />

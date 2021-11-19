@@ -6,13 +6,14 @@ import { useTheme } from "@mui/material/styles";
 
 export default function Invoices(props) {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Grid
       container
       sx={{
+        maxWidth: "calc()",
         background: "#f2f5f8",
-        paddingBottom: matches ? "32px" : "64px",
+        paddingBottom: isBelowThreshold ? "32px" : "64px",
       }}
       direction="row"
     >
@@ -23,14 +24,17 @@ export default function Invoices(props) {
         sx={{
           "&>*+*": { marginTop: "16px" },
           p: 1,
-          width: matches ? "100%" : "70%",
+          width: isBelowThreshold ? "100%" : "70%",
         }}
       >
         <Typography
           variant="body1"
           align="left"
           gutterBottom
-          sx={{ marginLeft: matches ? "1rem" : "2rem", paddingTop: "1rem" }}
+          sx={{
+            marginLeft: isBelowThreshold ? "1rem" : "2rem",
+            paddingTop: "1rem",
+          }}
         >
           <strong>My invoices</strong>
         </Typography>
@@ -48,7 +52,7 @@ export default function Invoices(props) {
           );
         })}
       </Grid>
-      {!matches && (
+      {!isBelowThreshold && (
         <Grid item sx={{ right: 0 }}>
           <DesktopInvoiceCard />
         </Grid>

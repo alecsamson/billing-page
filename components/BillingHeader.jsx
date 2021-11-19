@@ -6,7 +6,7 @@ import { useTheme } from "@mui/material/styles";
 
 export default function BillingHeader() {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Grid
       item
@@ -25,17 +25,17 @@ export default function BillingHeader() {
       }}
     >
       <Box sx={{ display: "flex", alignItems: "center" }}>
-        {matches ? <ArrowBackIcon /> : ""}
+        {isBelowThreshold ? <ArrowBackIcon /> : ""}
         <Typography
           sx={{
-            fontSize: matches ? "24px" : "32px",
-            fontWeight: matches ? "normal" : "bold",
+            fontSize: isBelowThreshold ? "24px" : "32px",
+            fontWeight: isBelowThreshold ? "normal" : "bold",
           }}
         >
           Billing
         </Typography>
       </Box>
-      {matches ? <HelpIcon /> : ""}
+      {isBelowThreshold ? <HelpIcon /> : ""}
     </Grid>
   );
 }

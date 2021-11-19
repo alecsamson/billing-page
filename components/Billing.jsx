@@ -7,17 +7,19 @@ import { useTheme } from "@mui/material/styles";
 
 export default function Billing(props) {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <>
       <Grid
         container
         sx={{
-          position: matches ? "static" : "sticky",
-          top: matches ? "auto" : "72px",
-          padding: matches ? "8px 32px 32px 32px" : "16px 32px 58px 32px",
+          position: isBelowThreshold ? "static" : "sticky",
+          top: isBelowThreshold ? "auto" : "72px",
+          padding: isBelowThreshold
+            ? "8px 32px 32px 32px"
+            : "16px 32px 58px 32px",
           alignItems: "center",
-          justifyContent: matches ? "center" : "space-evenly",
+          justifyContent: isBelowThreshold ? "center" : "space-evenly",
           background: "linear-gradient(90deg, #26A1B7 0%, #0372AE 100%)",
           zIndex: 10,
         }}
@@ -39,7 +41,7 @@ export default function Billing(props) {
             </Grid>
           </Grid>
 
-          {matches ? <BillingCard invoice={props.invoiceIds} /> : ""}
+          {isBelowThreshold ? <BillingCard invoice={props.invoiceIds} /> : ""}
 
           <Grid
             item
@@ -56,7 +58,7 @@ export default function Billing(props) {
           </Grid>
         </Grid>
 
-        {matches ? (
+        {isBelowThreshold ? (
           ""
         ) : (
           <Grid item>

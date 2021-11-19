@@ -7,16 +7,16 @@ import { useTheme } from "@mui/material/styles";
 
 export default function BillingCard(props) {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Grid
       container
       sx={{
         background: "#419ec1",
-        padding: matches ? "8px" : "52px 64px",
-        flexWrap: matches ? "nowrap" : "wrap",
+        padding: isBelowThreshold ? "8px" : "52px 64px",
+        flexWrap: isBelowThreshold ? "nowrap" : "wrap",
         margin: "auto",
-        justifyContent: matches ? "center" : "space-around",
+        justifyContent: isBelowThreshold ? "center" : "space-around",
       }}
     >
       <Typography
