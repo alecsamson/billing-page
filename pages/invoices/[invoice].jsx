@@ -9,8 +9,6 @@ export default function Invoice(props) {
   const myInvoice = props.state.find((item) => item.id == query.invoice);
   const splitDate = myInvoice.date.split("/");
   const initialDate = `${splitDate[0]}/0${splitDate[1] - 1}/${splitDate[2]}`;
-  // console.log("my props array is " + JSON.stringify(myInvoice, undefined, 2));
-  // console.table(myInvoice);
 
   return (
     <Grid container justifyContent="space-around">
