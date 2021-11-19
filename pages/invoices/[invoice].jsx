@@ -6,11 +6,11 @@ export default function Invoice(props) {
   const router = useRouter();
   const { query } = router;
 
-  const myArray = props.state.find((item) => item.id == query.invoice);
-  const splitDate = myArray.date.split("/");
+  const myInvoice = props.state.find((item) => item.id == query.invoice);
+  const splitDate = myInvoice.date.split("/");
   const initialDate = `${splitDate[0]}/0${splitDate[1] - 1}/${splitDate[2]}`;
-  // console.log("my props array is " + JSON.stringify(myArray, undefined, 2));
-  // console.table(myArray);
+  // console.log("my props array is " + JSON.stringify(myInvoice, undefined, 2));
+  // console.table(myInvoice);
 
   return (
     <Grid container justifyContent="space-around">
@@ -41,12 +41,12 @@ export default function Invoice(props) {
       >
         <Typography component="div" sx={{ color: "white" }}>
           <Typography variant="body1">Invoice number</Typography>
-          <Typography variant="body2">{myArray.id}</Typography>
+          <Typography variant="body2">{myInvoice.id}</Typography>
         </Typography>
 
         <Typography component="div" align="center" sx={{ color: "white" }}>
           <Typography variant="body1">Due date </Typography>
-          <Typography variant="body2">{myArray.date}</Typography>
+          <Typography variant="body2">{myInvoice.date}</Typography>
         </Typography>
       </Grid>
 
@@ -68,12 +68,12 @@ export default function Invoice(props) {
             ILIMITADA 30
           </Typography>
           <Typography variant="body2">
-            {initialDate} - {myArray.date}
+            {initialDate} - {myInvoice.date}
           </Typography>
         </Grid>
         <Grid item>
           <Typography variant="subtitle1">
-            {myArray.price}
+            {myInvoice.price}
             {"\u20AC"}
           </Typography>
         </Grid>
@@ -93,7 +93,7 @@ export default function Invoice(props) {
         justifyContent="space-between"
       >
         <Typography variant="h8">Sub Total</Typography>
-        <Typography variant="h8">{myArray.price}&euro;</Typography>
+        <Typography variant="h8">{myInvoice.price}&euro;</Typography>
       </Grid>
 
       <Typography
