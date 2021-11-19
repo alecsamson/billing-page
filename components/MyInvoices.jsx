@@ -8,8 +8,7 @@ import { useState } from "react";
 export default function Invoices(props) {
   const theme = useTheme();
   const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
-  // console.log(props.invoiceIds[0]);
-  // console.log(typeof props.invoiceIds[0].id);
+
   let [isToggled, setIsToggled] = useState([true, props.invoiceIds[0].id]);
 
   return (
@@ -62,7 +61,7 @@ export default function Invoices(props) {
         {!isToggled[0] && (
           <Grid item xs={4}>
             <DesktopInvoiceCard
-              onClick={() => setIsToggled(!isToggled[0])}
+              onClick={() => setIsToggled([!isToggled[0]])}
               key={isToggled[1].id}
               id={isToggled[1].id}
               price={isToggled[1].price}
