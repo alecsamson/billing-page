@@ -61,7 +61,7 @@ export default function Invoices(props) {
         {!isToggled[0] && (
           <Grid item xs={4}>
             <DesktopInvoiceCard
-              onClick={() => setIsToggled([!isToggled[0]])}
+              onClick={() => setIsToggled([!isToggled[0]], isToggled[1])}
               key={isToggled[1].id}
               id={isToggled[1].id}
               price={isToggled[1].price}
