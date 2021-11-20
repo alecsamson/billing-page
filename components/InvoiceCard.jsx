@@ -4,7 +4,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
 export default function InvoiceCard(props) {
-  const splitDate = props.date.split("/");
+  // const splitDate = props.date.split("/");
   const months = [
     "January",
     "February",
