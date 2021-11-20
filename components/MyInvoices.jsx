@@ -17,7 +17,7 @@ export default function Invoices(props) {
         display: "flex",
         flexDirection: "row",
         background: "#f2f5f8",
-        height: "100vh",
+        height: props.invoiceIds ? "auto" : "100vh",
       }}
     >
       <Grid
