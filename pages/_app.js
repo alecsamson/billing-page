@@ -10,7 +10,7 @@ const invoiceNumbers = [
   {
     id: 123455123455,
     price: 49.99,
-    status: "ISSUED",
+    status: "issued",
     statusColor: "#63cefb",
     date: "21/10/2020",
   },

@@ -36,12 +36,13 @@ export default function Invoices(props) {
             align="left"
             gutterBottom
             sx={{
-              marginLeft: isBelowThreshold
-                ? "1rem"
+              paddingLeft: isBelowThreshold
+                ? "2rem"
                 : isToggled[0]
-                ? "9rem"
-                : "2rem",
+                ? "18rem"
+                : "4rem",
               paddingTop: "1rem",
+              alignSelf: "flex-start",
             }}
           >
             <strong>My invoices</strong>

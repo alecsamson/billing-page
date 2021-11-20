@@ -10,6 +10,11 @@ export default function Billing(props) {
   const initialDate = `${splitDate[0]}/${Number(splitDate[1]) + 1}/${
     splitDate[2]
   }`;
+  const accountBalance = props.invoiceIds
+    .map((obj) =>
+      obj.status == "overdue" || obj.status == "issued" ? obj.price : 0
+    )
+    .reduce((prev, curr) => Number(prev) + Number(curr));
   const theme = useTheme();
   const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
   return (
@@ -20,7 +25,7 @@ export default function Billing(props) {
           position: isBelowThreshold ? "static" : "sticky",
           top: isBelowThreshold ? "auto" : "5rem",
           padding: isBelowThreshold
-            ? "8px 32px 32px 32px"
+            ? "8px 32px 18px 32px"
             : "16px 32px 58px 32px",
           alignItems: "center",
           justifyContent: isBelowThreshold ? "center" : "space-evenly",
@@ -40,7 +45,7 @@ export default function Billing(props) {
               item
               sx={{ alignItems: "center", justifyContent: "center" }}
             >
-              <Typography variant="h4">174,97</Typography>
+              <Typography variant="h4">{accountBalance}</Typography>
               <EuroIcon fontSize="large" />
             </Grid>
           </Grid>
