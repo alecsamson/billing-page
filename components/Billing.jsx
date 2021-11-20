@@ -76,13 +76,11 @@ export default function Billing(props = null) {
           </Grid>
         </Grid>
 
-        {!isBelowThreshold && props.invoiceIds.length && (
+        {!isBelowThreshold && props.invoiceIds.length ? (
           <Grid item>
-            <BillingCard
-              invoice={props.invoiceIds.length ? props.invoiceIds : 0}
-            />
+            <BillingCard invoice={props.invoiceIds} />
           </Grid>
-        )}
+        ) : null}
       </Grid>
     </>
   );
