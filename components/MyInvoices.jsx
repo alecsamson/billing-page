@@ -63,7 +63,7 @@ export default function Invoices(props) {
           })}
         </Grid>
       </Grid>
-      {!isToggled[0] && (
+      {!isToggled[0] && !isBelowThreshold && (
         <Grid item xs={4}>
           <DesktopInvoiceCard
             onClick={() => setIsToggled([!isToggled[0]])}
