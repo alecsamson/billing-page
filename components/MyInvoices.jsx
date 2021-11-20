@@ -12,7 +12,14 @@ export default function Invoices(props) {
   let [isToggled, setIsToggled] = useState([true, props.invoiceIds[0]]);
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "row", background: "#f2f5f8" }}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "row",
+        background: "#f2f5f8",
+        height: "100vh",
+      }}
+    >
       <Grid
         item
         container
@@ -48,20 +55,32 @@ export default function Invoices(props) {
             <strong>My invoices</strong>
           </Typography>
 
-          {props.invoiceIds.map((number) => {
-            return (
-              <InvoiceCard
-                onClick={() => setIsToggled([!isToggled[0], number])}
-                key={number.id}
-                id={number.id}
-                price={number.price}
-                status={number.status}
-                date={number.date}
-                color={number.statusColor}
-                href={`/invoices/${number.id}`}
-              />
-            );
-          })}
+          {props.invoiceIds.length == 0 ? (
+            <Typography
+              sx={{
+                color: "#6c7881",
+                textAlign: "left",
+                paddingLeft: isBelowThreshold ? "2rem" : "18rem",
+              }}
+            >
+              There are no invoices available!
+            </Typography>
+          ) : (
+            props.invoiceIds.map((number) => {
+              return (
+                <InvoiceCard
+                  onClick={() => setIsToggled([!isToggled[0], number])}
+                  key={number.id}
+                  id={number.id}
+                  price={number.price}
+                  status={number.status}
+                  date={number.date}
+                  color={number.statusColor}
+                  href={`/invoices/${number.id}`}
+                />
+              );
+            })
+          )}
         </Grid>
       </Grid>
       {!isToggled[0] && !isBelowThreshold && (

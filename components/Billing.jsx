@@ -5,16 +5,20 @@ import EuroIcon from "@mui/icons-material/Euro";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
-export default function Billing(props) {
-  const splitDate = props.invoiceIds[0].date.split("/");
-  const initialDate = `${splitDate[0]}/${Number(splitDate[1]) + 1}/${
-    splitDate[2]
-  }`;
-  const accountBalance = props.invoiceIds
-    .map((obj) =>
-      obj.status == "overdue" || obj.status == "issued" ? obj.price : 0
-    )
-    .reduce((prev, curr) => Number(prev) + Number(curr));
+export default function Billing(props = null) {
+  const splitDate = props.invoiceIds.length
+    ? props.invoiceIds[0].date.split("/")
+    : 0;
+  const initialDate = props.invoiceIds
+    ? `${splitDate[0]}/${Number(splitDate[1]) + 1}/${splitDate[2]}`
+    : 0;
+  const accountBalance = props.invoiceIds.length
+    ? props.invoiceIds
+        .map((obj) =>
+          obj.status == "overdue" || obj.status == "issued" ? obj.price : 0
+        )
+        .reduce((prev, curr) => Number(prev) + Number(curr))
+    : 0;
   const theme = useTheme();
   const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
   return (
@@ -45,12 +49,16 @@ export default function Billing(props) {
               item
               sx={{ alignItems: "center", justifyContent: "center" }}
             >
-              <Typography variant="h4">{accountBalance}</Typography>
+              <Typography variant="h4">
+                {props.invoiceIds.length ? accountBalance : 0}
+              </Typography>
               <EuroIcon fontSize="large" />
             </Grid>
           </Grid>
 
-          {isBelowThreshold ? <BillingCard invoice={props.invoiceIds} /> : ""}
+          {isBelowThreshold && props.invoiceIds.length ? (
+            <BillingCard invoice={props.invoiceIds} />
+          ) : null}
 
           <Grid
             item
@@ -62,16 +70,17 @@ export default function Billing(props) {
             }}
           >
             <Typography align="center">
-              Next invoice will be issued on {initialDate}.
+              Next invoice will be issued on{" "}
+              {props.invoiceIds.length ? initialDate : "21/10/2020"}.
             </Typography>
           </Grid>
         </Grid>
 
-        {isBelowThreshold ? (
-          ""
-        ) : (
+        {!isBelowThreshold && props.invoiceIds.length && (
           <Grid item>
-            <BillingCard invoice={props.invoiceIds} />
+            <BillingCard
+              invoice={props.invoiceIds.length ? props.invoiceIds : 0}
+            />
           </Grid>
         )}
       </Grid>

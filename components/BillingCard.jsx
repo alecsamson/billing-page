@@ -6,10 +6,12 @@ import HistoryIcon from "@mui/icons-material/History";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
-export default function BillingCard(props) {
-  const overdue = props.invoice
-    .map((obj) => (obj.status == "overdue" ? obj.price : 0))
-    .reduce((prev, curr) => Number(prev) + Number(curr));
+export default function BillingCard(props = null) {
+  const overdue = props.invoice.length
+    ? props.invoice
+        .map((obj) => (obj.status == "overdue" ? obj.price : 0))
+        .reduce((prev, curr) => Number(prev) + Number(curr))
+    : 0;
   const areBillsOverdue = overdue > 0;
   const theme = useTheme();
   const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
@@ -53,9 +55,11 @@ export default function BillingCard(props) {
         sx={{ color: "white", padding: "0 24px" }}
       >
         <CalendarTodayIcon />
-        <Typography variant="body1">Due on {props.invoice[0].date}</Typography>
-        <Typography variant="body2">
-          {props.invoice[0].price}
+        <Typography variant="body1">
+          Due on {props.invoice.length ? props.invoice[0].date : 0}
+        </Typography>
+        <Typography variant="body2" sx={{ fontSize: "1rem" }}>
+          {props.invoice.length ? props.invoice[0].price : 0}
           {"\u20AC"}
         </Typography>
       </Typography>
