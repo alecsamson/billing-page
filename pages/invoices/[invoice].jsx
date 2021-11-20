@@ -5,7 +5,6 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 export default function Invoice(props = null) {
   const router = useRouter();
   const { query } = router;
-  props.state.length;
   const myInvoice = props.state.length
     ? props.state.find((item) => item.id == query.invoice)
     : 0;

@@ -23,6 +23,20 @@ export default function InvoiceCard(props) {
   const { push } = useRouter();
   const theme = useTheme();
 
+  const statusColor = {
+    issued: "#63cefb",
+    overdue: "#cf4520",
+    paid: "#7DBE00",
+  };
+
+  const today = new Date();
+  const splitDate = props.date.split("/");
+  const invoiceDate = new Date(
+    `${splitDate[2]}-${splitDate[1]}-${splitDate[0]}`
+  );
+  const invoiceStatus =
+    today < invoiceDate ? "issued" : today > invoiceDate ? "overdue" : "paid";
+
   const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Container
@@ -60,13 +74,13 @@ export default function InvoiceCard(props) {
             textTransform: "uppercase",
             fontWeight: "bold",
             right: 0,
-            backgroundColor: props.color,
+            backgroundColor: statusColor[invoiceStatus],
             borderTopLeftRadius: "10px",
             borderBottomLeftRadius: "10px",
             padding: "0 8px",
           }}
         >
-          {props.status}
+          {invoiceStatus}
         </Typography>
         <Grid item sx={{ alignSelf: "flex-end" }}>
           <Typography variant="subtitle1">
