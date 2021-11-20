@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { Grid, Typography } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-export default function Invoice(props) {
+export default function Invoice(props = null) {
   const router = useRouter();
   const { query } = router;
 
