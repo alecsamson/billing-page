@@ -7,6 +7,7 @@ export default function Invoice(props = null) {
   const { query } = router;
 
   const myInvoice = props.state.find((item) => item.id == query.invoice);
+  const limitDate = myInvoice.date;
   const splitDate = myInvoice.date.split("/");
   const initialDate = `${splitDate[0]}/0${splitDate[1] - 1}/${splitDate[2]}`;
 
@@ -44,7 +45,7 @@ export default function Invoice(props = null) {
 
         <Typography component="div" align="center" sx={{ color: "white" }}>
           <Typography variant="body1">Due date </Typography>
-          <Typography variant="body2">{myInvoice.date}</Typography>
+          <Typography variant="body2">{limitDate}</Typography>
         </Typography>
       </Grid>
 
@@ -66,7 +67,7 @@ export default function Invoice(props = null) {
             ILIMITADA 30
           </Typography>
           <Typography variant="body2">
-            {initialDate} - {myInvoice.date}
+            {initialDate} - {limitDate}
           </Typography>
         </Grid>
         <Grid item>
