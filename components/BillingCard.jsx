@@ -1,11 +1,16 @@
 import { Grid, Typography, Divider } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import HistoryIcon from "@mui/icons-material/History";
 
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
 export default function BillingCard(props) {
+  const overdue = props.invoice
+    .map((obj) => (obj.status == "overdue" ? obj.price : 0))
+    .reduce((prev, curr) => Number(prev) + Number(curr));
+  const areBillsOverdue = overdue > 0;
   const theme = useTheme();
   const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
   return (
@@ -24,14 +29,12 @@ export default function BillingCard(props) {
         align="center"
         sx={{ color: "white", padding: "0 24px" }}
       >
-        <CheckIcon />
+        {areBillsOverdue ? <HistoryIcon /> : <CheckIcon />}
         <Typography variant="body1" sx={{ color: "white" }}>
           Overdue Balance
         </Typography>
         <Typography>
-          {props.invoice
-            .map((obj) => (obj.status == "overdue" ? obj.price : ""))
-            .reduce((prev, curr) => Number(prev) + Number(curr))}
+          {overdue}
           {"\u20AC"}
         </Typography>
       </Typography>

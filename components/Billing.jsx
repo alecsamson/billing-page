@@ -56,7 +56,7 @@ export default function Billing(props) {
               justifyContent: "center",
             }}
           >
-            <Typography>
+            <Typography align="center">
               Next invoice will be issued on {initialDate}.
             </Typography>
           </Grid>
