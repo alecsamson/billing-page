@@ -10,7 +10,7 @@ export default function DesktopInvoiceCard(props) {
       container
       sx={{
         position: "sticky",
-        zIndex: 10,
+        zIndex: 100,
         right: 0,
         top: 336.5,
         maxWidth: "22rem",

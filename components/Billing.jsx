@@ -18,7 +18,7 @@ export default function Billing(props) {
         container
         sx={{
           position: isBelowThreshold ? "static" : "sticky",
-          top: isBelowThreshold ? "auto" : "72px",
+          top: isBelowThreshold ? "auto" : "5rem",
           padding: isBelowThreshold
             ? "8px 32px 32px 32px"
             : "16px 32px 58px 32px",

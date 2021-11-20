@@ -33,7 +33,11 @@ export default function DesktopSidebar() {
       >
         <Grid
           item
-          sx={{ height: "5rem", alignSelf: "flex-end", margin: "1rem 0" }}
+          sx={{
+            height: "5rem",
+            alignSelf: "flex-end",
+            margin: "0.5rem 0 0.5rem 0",
+          }}
         >
           <Typography
             sx={{
@@ -56,9 +60,9 @@ export default function DesktopSidebar() {
       <Typography
         sx={{
           padding: "16px",
-
           display: "flex",
           alignItems: "center",
+          marginBottom: "0.3rem",
         }}
       >
         <HomeOutlinedIcon />
@@ -70,6 +74,7 @@ export default function DesktopSidebar() {
           display: "flex",
           alignItems: "center",
           background: "#F2F5F8",
+          marginBottom: "0.3rem",
           boxShadow:
             "inset 0px -1px 0px rgba(0, 0, 0, 0.15), inset 3px 0px 0px #04819E",
         }}
@@ -78,24 +83,35 @@ export default function DesktopSidebar() {
         BILLING
       </Typography>
       <Typography
-        sx={{ padding: "16px", display: "flex", alignItems: "center" }}
+        sx={{
+          padding: "16px 16px 18px 16px",
+          display: "flex",
+          marginBottom: "0.3rem",
+          alignItems: "center",
+        }}
       >
         <AccountCircleOutlinedIcon />
         ACCOUNT SETTINGS
       </Typography>
       <Typography
         sx={{
-          padding: "16px",
+          padding: "16px 16px 18px 16px",
           display: "flex",
           alignItems: "center",
           boxShadow: "inset 0px -1px 0px rgba(0, 0, 0, 0.15) ",
+          marginBottom: "0.3rem",
         }}
       >
         <ContactSupportOutlinedIcon />
         HELP & FAQ
       </Typography>
       <Typography
-        sx={{ padding: "16px", display: "flex", alignItems: "center" }}
+        sx={{
+          padding: "16px",
+          display: "flex",
+          marginBottom: "0.3rem",
+          alignItems: "center",
+        }}
       >
         <PowerSettingsNewOutlinedIcon />
         LOG OUT

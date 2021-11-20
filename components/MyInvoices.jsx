@@ -12,7 +12,7 @@ export default function Invoices(props) {
   let [isToggled, setIsToggled] = useState([true, props.invoiceIds[0]]);
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "row" }}>
+    <Box sx={{ display: "flex", flexDirection: "row", background: "#f2f5f8" }}>
       <Grid
         item
         container
@@ -28,7 +28,7 @@ export default function Invoices(props) {
           sx={{
             "&>*+*": { marginTop: "16px" },
             p: 1,
-            width: isBelowThreshold ? "100%" : isToggled[0] ? "100%" : "70%",
+            width: "100%",
           }}
         >
           <Typography
@@ -36,7 +36,11 @@ export default function Invoices(props) {
             align="left"
             gutterBottom
             sx={{
-              marginLeft: isBelowThreshold ? "1rem" : "2rem",
+              marginLeft: isBelowThreshold
+                ? "1rem"
+                : isToggled[0]
+                ? "9rem"
+                : "2rem",
               paddingTop: "1rem",
             }}
           >
@@ -58,19 +62,19 @@ export default function Invoices(props) {
             );
           })}
         </Grid>
-        {!isToggled[0] && (
-          <Grid item xs={4}>
-            <DesktopInvoiceCard
-              onClick={() => setIsToggled([!isToggled[0]])}
-              key={isToggled[1].id}
-              id={isToggled[1].id}
-              price={isToggled[1].price}
-              status={isToggled[1].status}
-              date={isToggled[1].date}
-            />
-          </Grid>
-        )}
       </Grid>
+      {!isToggled[0] && (
+        <Grid item xs={4}>
+          <DesktopInvoiceCard
+            onClick={() => setIsToggled([!isToggled[0]])}
+            key={isToggled[1].id}
+            id={isToggled[1].id}
+            price={isToggled[1].price}
+            status={isToggled[1].status}
+            date={isToggled[1].date}
+          />
+        </Grid>
+      )}
     </Box>
   );
 }
