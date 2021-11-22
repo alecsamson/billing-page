@@ -9,14 +9,13 @@ export default function Billing(props = null) {
   const splitDate = props.invoiceIds.length
     ? props.invoiceIds[0].date.split("/")
     : 0;
-  const initialDate = props.invoiceIds
-    ? `${splitDate[0]}/${Number(splitDate[1]) + 1}/${splitDate[2]}`
-    : 0;
+  const nextInvoiceDate =
+    props.invoiceIds && splitDate[1] <= 12
+      ? `${splitDate[0]}/${Number(splitDate[1]) + 1}/${splitDate[2]}`
+      : 0;
   const accountBalance = props.invoiceIds.length
     ? props.invoiceIds
-        .map((obj) =>
-          obj.status == "overdue" || obj.status == "issued" ? obj.price : 0
-        )
+        .map((obj) => (obj.status == "due" ? obj.price : 0))
         .reduce((prev, curr) => Number(prev) + Number(curr))
     : 0;
   const theme = useTheme();
@@ -71,7 +70,12 @@ export default function Billing(props = null) {
           >
             <Typography align="center">
               Next invoice will be issued on{" "}
-              {props.invoiceIds.length ? initialDate : "21/10/2020"}.
+              {props.invoiceIds.length && splitDate[1] == 12
+                ? `${splitDate[0]}/${"01"}/${Number(splitDate[2]) + 1}`
+                : props.invoiceIds.length
+                ? nextInvoiceDate
+                : "21/12/2021"}
+              .
             </Typography>
           </Grid>
         </Grid>

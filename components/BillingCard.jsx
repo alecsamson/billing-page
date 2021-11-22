@@ -7,9 +7,18 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
 export default function BillingCard(props = null) {
+  const today = new Date();
+
   const overdue = props.invoice.length
     ? props.invoice
-        .map((obj) => (obj.status == "overdue" ? obj.price : 0))
+        .map((obj) => {
+          const splitDate = obj.date.split("/");
+          const invoiceDate = new Date(
+            `${splitDate[2]}-${splitDate[1]}-${splitDate[0]}`
+          );
+
+          return obj.status == "due" && today > invoiceDate ? obj.price : 0;
+        })
         .reduce((prev, curr) => Number(prev) + Number(curr))
     : null;
   const areBillsOverdue = overdue > 0;

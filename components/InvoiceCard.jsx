@@ -35,7 +35,13 @@ export default function InvoiceCard(props) {
     `${splitDate[2]}-${splitDate[1]}-${splitDate[0]}`
   );
   const invoiceStatus =
-    today < invoiceDate ? "issued" : today > invoiceDate ? "overdue" : "paid";
+    props.status === "paid"
+      ? "paid"
+      : today < invoiceDate
+      ? "issued"
+      : today > invoiceDate
+      ? "overdue"
+      : null;
 
   const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
   return (
@@ -62,7 +68,8 @@ export default function InvoiceCard(props) {
             <strong>{months[Number(splitDate[1] - 1)]}</strong>
           </Typography>
           <Typography variant="body2">
-            Due on <strong>{props.date}</strong>
+            {invoiceStatus == "paid" ? "Paid" : "Due"} on{" "}
+            <strong>{props.date}</strong>
           </Typography>
         </Grid>
 
