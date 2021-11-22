@@ -16,7 +16,7 @@ export default function MyInvoices(props) {
       container
       sx={{
         flexDirection: "row",
-        justifyContent: "space-between",
+        justifyContent: isToggled[0] ? "space-between" : "center",
         background: "#f2f5f8",
         height: props.invoiceIds > 0 ? "100vh" : "auto",
       }}
@@ -26,6 +26,9 @@ export default function MyInvoices(props) {
         direction="column"
         md={isToggled[0] ? 12 : 8}
         sx={{
+          flexGrow: isToggled[0] ? 4 : 0,
+          padding: "0 24px 0 24px",
+          maxWidth: "661px",
           background: "#f2f5f8",
           paddingBottom: isBelowThreshold ? "32px" : "64px",
           "&>*+*": { marginTop: "16px" },
@@ -69,6 +72,7 @@ export default function MyInvoices(props) {
           })
         )}
       </Grid>
+
       {!isToggled[0] && !isBelowThreshold && (
         <Grid item md={4} sx={{ paddingRight: "1.5rem", maxWidth: "345px" }}>
           <DesktopInvoiceCard
