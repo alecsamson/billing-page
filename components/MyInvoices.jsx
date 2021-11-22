@@ -15,6 +15,7 @@ export default function MyInvoices(props) {
   return (
     <Grid
       container
+      lg={12}
       sx={{
         justifyContent: isToggled[0] ? "center" : "space-between",
         background: "#f2f5f8",
@@ -25,12 +26,12 @@ export default function MyInvoices(props) {
         item
         container
         direction="column"
-        lg={isToggled[0] ? 12 : 8}
+        lg={isToggled[0] ? 7 : 8}
         sx={{
-          // padding: "0 24px 0 24px",
+          padding: "0 24px 0 24px",
+          alignItems: "center",
+          maxWidth: isToggled[0] ? "661px" : "100%",
 
-          width: "100%",
-          maxWidth: "661px",
           background: "#f2f5f8",
           paddingBottom: isBelowThreshold ? "32px" : "64px",
           "&>*+*": { marginTop: "16px" },
@@ -38,7 +39,6 @@ export default function MyInvoices(props) {
       >
         <Typography
           align="left"
-          gutterBottom
           sx={{
             paddingTop: "1rem",
             alignSelf: "flex-start",
@@ -50,6 +50,7 @@ export default function MyInvoices(props) {
         {props.invoiceIds.length < 0 ? (
           <Typography
             sx={{
+              padding: "0 0 0 1rem",
               color: "#6c7881",
               textAlign: "left",
               paddingLeft: isBelowThreshold ? "10%" : "18%",
