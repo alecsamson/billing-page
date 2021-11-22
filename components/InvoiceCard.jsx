@@ -50,9 +50,7 @@ export default function InvoiceCard(props) {
       sx={{
         width: "100%",
         border:
-          props.id == props.selectedInvoice
-            ? "2px solid rgba(10, 165, 171, 0.4)"
-            : "none",
+          props.id == props.selectedInvoice ? props.selectedBorder : "none",
       }}
     >
       <Grid
