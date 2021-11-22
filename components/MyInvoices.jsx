@@ -16,10 +16,9 @@ export default function MyInvoices(props) {
     <Grid
       container
       sx={{
-        flexDirection: "row",
-        justifyContent: isToggled[0] ? "space-between" : "center",
+        justifyContent: isToggled[0] ? "center" : "space-between",
         background: "#f2f5f8",
-        height: props.invoiceIds > 0 ? "100vh" : "auto",
+        height: props.invoiceIds.length < 0 ? "100vh" : "auto",
       }}
     >
       <Grid
@@ -28,7 +27,6 @@ export default function MyInvoices(props) {
         direction="column"
         lg={isToggled[0] ? 12 : 8}
         sx={{
-          flexGrow: isToggled[0] ? 4 : 0,
           padding: "0 24px 0 24px",
           maxWidth: "661px",
           background: "#f2f5f8",

@@ -12,7 +12,6 @@ export default function DesktopInvoiceCard(props) {
         position: "sticky",
         zIndex: 100,
         top: 346.5,
-
         backgroundColor: " #FFFFFF",
         marginTop: "3.85rem",
       }}

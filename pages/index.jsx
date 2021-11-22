@@ -21,6 +21,7 @@ export default function Home(props) {
         sx={{
           width: isBelowThreshold ? "100vw" : "calc(100vw - 15rem)",
           marginLeft: isBelowThreshold ? 0 : "auto",
+          background: "#f2f5f8",
         }}
       >
         <BillingHeader />

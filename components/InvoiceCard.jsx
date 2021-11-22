@@ -53,7 +53,7 @@ export default function InvoiceCard(props) {
         container
         sx={{
           p: 2,
-          width: "100%",
+          maxWidth: "661px",
           margin: "auto",
           boxShadow: 1,
           position: "relative",
