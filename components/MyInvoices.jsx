@@ -70,7 +70,7 @@ export default function MyInvoices(props) {
         )}
       </Grid>
       {!isToggled[0] && !isBelowThreshold && (
-        <Grid item md={4} sx={{ maxWidth: "345px" }}>
+        <Grid item md={4} sx={{ paddingRight: "1.5rem", maxWidth: "345px" }}>
           <DesktopInvoiceCard
             onClick={() => setIsToggled([!isToggled[0]])}
             key={isToggled[1].id}
