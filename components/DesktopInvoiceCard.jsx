@@ -12,10 +12,9 @@ export default function DesktopInvoiceCard(props) {
         position: "sticky",
         zIndex: 100,
         top: 346.5,
-        width: "100%",
-        maxWidth: "345px",
+
         backgroundColor: " #FFFFFF",
-        marginTop: "4.2rem",
+        marginTop: "3.5rem",
       }}
       justifyContent="space-around"
     >

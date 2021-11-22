@@ -15,8 +15,8 @@ export default function MyInvoices(props) {
     <Grid
       container
       sx={{
-        // display: "flex",
         flexDirection: "row",
+        justifyContent: "space-between",
         background: "#f2f5f8",
         height: props.invoiceIds > 0 ? "100vh" : "auto",
       }}
@@ -24,68 +24,53 @@ export default function MyInvoices(props) {
       <Grid
         item
         direction="column"
+        md={isToggled[0] ? 12 : 8}
         sx={{
-          justifyContent: "space-between",
           background: "#f2f5f8",
           paddingBottom: isBelowThreshold ? "32px" : "64px",
+          "&>*+*": { marginTop: "16px" },
         }}
       >
-        <Grid
-          item
-          xs={12}
-          md={isToggled[0] ? 7 : 12}
+        <Typography
+          align="left"
+          gutterBottom
           sx={{
-            "&>*+*": { marginTop: "16px" },
-            p: 1,
-            // width: "100%",
+            paddingTop: "1rem",
+            alignSelf: "flex-start",
           }}
         >
+          <strong>My invoices</strong>
+        </Typography>
+
+        {props.invoiceIds.length > 0 == 0 ? (
           <Typography
-            align="left"
-            gutterBottom
             sx={{
-              // paddingLeft: isBelowThreshold
-              //   ? "10%"
-              //   : isToggled[0]
-              //   ? "18%"
-              //   : "5%",
-              paddingTop: "1rem",
-              alignSelf: "flex-start",
+              color: "#6c7881",
+              textAlign: "left",
+              paddingLeft: isBelowThreshold ? "10%" : "18%",
             }}
           >
-            <strong>My invoices</strong>
+            There are no invoices available!
           </Typography>
-
-          {props.invoiceIds.length > 0 == 0 ? (
-            <Typography
-              sx={{
-                color: "#6c7881",
-                textAlign: "left",
-                paddingLeft: isBelowThreshold ? "10%" : "18%",
-              }}
-            >
-              There are no invoices available!
-            </Typography>
-          ) : (
-            props.invoiceIds.map((number) => {
-              return (
-                <InvoiceCard
-                  onClick={() => setIsToggled([!isToggled[0], number])}
-                  key={number.id}
-                  id={number.id}
-                  price={number.price}
-                  status={number.status}
-                  date={number.date}
-                  color={number.statusColor}
-                  href={`/invoices/${number.id}`}
-                />
-              );
-            })
-          )}
-        </Grid>
+        ) : (
+          props.invoiceIds.map((number) => {
+            return (
+              <InvoiceCard
+                onClick={() => setIsToggled([!isToggled[0], number])}
+                key={number.id}
+                id={number.id}
+                price={number.price}
+                status={number.status}
+                date={number.date}
+                color={number.statusColor}
+                href={`/invoices/${number.id}`}
+              />
+            );
+          })
+        )}
       </Grid>
       {!isToggled[0] && !isBelowThreshold && (
-        <Grid item md={4}>
+        <Grid item md={4} sx={{ maxWidth: "345px" }}>
           <DesktopInvoiceCard
             onClick={() => setIsToggled([!isToggled[0]])}
             key={isToggled[1].id}
