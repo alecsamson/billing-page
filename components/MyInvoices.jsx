@@ -27,7 +27,9 @@ export default function MyInvoices(props) {
         direction="column"
         lg={isToggled[0] ? 12 : 8}
         sx={{
-          padding: "0 24px 0 24px",
+          // padding: "0 24px 0 24px",
+
+          width: "100%",
           maxWidth: "661px",
           background: "#f2f5f8",
           paddingBottom: isBelowThreshold ? "32px" : "64px",
