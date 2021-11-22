@@ -44,10 +44,10 @@ export default function MyInvoices(props) {
             gutterBottom
             sx={{
               paddingLeft: isBelowThreshold
-                ? "2rem"
+                ? "10%"
                 : isToggled[0]
-                ? "18rem"
-                : "4rem",
+                ? "18%"
+                : "5%",
               paddingTop: "1rem",
               alignSelf: "flex-start",
             }}
@@ -60,7 +60,7 @@ export default function MyInvoices(props) {
               sx={{
                 color: "#6c7881",
                 textAlign: "left",
-                paddingLeft: isBelowThreshold ? "2rem" : "18rem",
+                paddingLeft: isBelowThreshold ? "10%" : "18%",
               }}
             >
               There are no invoices available!
