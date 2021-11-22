@@ -13,26 +13,6 @@ export default function Home(props) {
 
   const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
 
-  // const statusColor = {
-  //   issued: "#63cefb",
-  //   overdue: "#cf4520",
-  //   paid: "#7DBE00",
-  // };
-
-  // const today = new Date();
-  // const splitDate = props.state.date.split("/");
-  // const invoiceDate = new Date(
-  //   `${splitDate[2]}-${splitDate[1]}-${splitDate[0]}`
-  // );
-  // const invoiceStatus =
-  //   props.status === "paid"
-  //     ? "paid"
-  //     : today < invoiceDate
-  //     ? "issued"
-  //     : today > invoiceDate
-  //     ? "overdue"
-  //     : null;
-
   return (
     <Grid container sx={{ height: "100%", width: "100%" }}>
       <DesktopSidebar sx={{ background: "#fff" }} />
@@ -46,11 +26,7 @@ export default function Home(props) {
         <BillingHeader />
         <Billing invoiceIds={props.state} />
 
-        <MyInvoices
-          invoiceIds={props.state}
-          // color={statusColor}
-          // invoiceStatus={invoiceStatus}
-        />
+        <MyInvoices invoiceIds={props.state} />
       </Grid>
 
       <DesktopFooter />

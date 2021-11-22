@@ -74,7 +74,7 @@ export default function Billing(props = null) {
                 ? `${splitDate[0]}/${"01"}/${Number(splitDate[2]) + 1}`
                 : props.invoiceIds.length
                 ? nextInvoiceDate
-                : "21/12/2021"}
+                : "21/10/2021"}
               .
             </Typography>
           </Grid>

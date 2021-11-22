@@ -17,7 +17,7 @@ export default function MyInvoices(props) {
         display: "flex",
         flexDirection: "row",
         background: "#f2f5f8",
-        height: props.invoiceIds ? "auto" : "100vh",
+        height: props.invoiceIds > 0 ? "auto" : "100vh",
       }}
     >
       <Grid
@@ -55,7 +55,7 @@ export default function MyInvoices(props) {
             <strong>My invoices</strong>
           </Typography>
 
-          {props.invoiceIds.length == 0 ? (
+          {props.invoiceIds.length > 0 == 0 ? (
             <Typography
               sx={{
                 color: "#6c7881",
