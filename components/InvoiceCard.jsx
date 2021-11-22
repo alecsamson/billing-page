@@ -44,11 +44,13 @@ export default function InvoiceCard(props) {
 
   const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
   return (
-    <Grid container>
+    <Grid
+      container
+      onClick={isBelowThreshold ? () => push(props.href) : props.onClick}
+    >
       <Grid
         item
         container
-        onClick={isBelowThreshold ? () => push(props.href) : props.onClick}
         sx={{
           p: 2,
           width: "100%",

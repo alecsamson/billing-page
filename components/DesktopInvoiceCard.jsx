@@ -14,7 +14,7 @@ export default function DesktopInvoiceCard(props) {
         top: 346.5,
 
         backgroundColor: " #FFFFFF",
-        marginTop: "3.5rem",
+        marginTop: "3.85rem",
       }}
       justifyContent="space-around"
     >

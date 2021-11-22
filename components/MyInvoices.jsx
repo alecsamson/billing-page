@@ -9,7 +9,8 @@ export default function MyInvoices(props) {
   const theme = useTheme();
   const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
 
-  let [isToggled, setIsToggled] = useState([true, props.invoiceIds[0]]);
+  let [isToggled, setIsToggled] = useState([false, props.invoiceIds[0]]);
+  console.log("is toggled ? " + isToggled[0] + " " + isToggled[1]);
 
   return (
     <Grid
@@ -23,6 +24,7 @@ export default function MyInvoices(props) {
     >
       <Grid
         item
+        container
         direction="column"
         md={isToggled[0] ? 12 : 8}
         sx={{
@@ -45,7 +47,7 @@ export default function MyInvoices(props) {
           <strong>My invoices</strong>
         </Typography>
 
-        {props.invoiceIds.length > 0 == 0 ? (
+        {props.invoiceIds.length < 0 ? (
           <Typography
             sx={{
               color: "#6c7881",
@@ -59,7 +61,14 @@ export default function MyInvoices(props) {
           props.invoiceIds.map((number) => {
             return (
               <InvoiceCard
-                onClick={() => setIsToggled([!isToggled[0], number])}
+                state={isToggled[0]}
+                onClick={() =>
+                  setIsToggled(
+                    !isToggled[0]
+                      ? [isToggled[0], number]
+                      : [!isToggled[0], number]
+                  )
+                }
                 key={number.id}
                 id={number.id}
                 price={number.price}
