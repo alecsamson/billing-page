@@ -3,7 +3,9 @@ import CloseIcon from "@mui/icons-material/Close";
 
 export default function DesktopInvoiceCard(props) {
   const splitDate = props.date.split("/");
-  const initialDate = `${splitDate[0]}/0${splitDate[1] - 1}/${splitDate[2]}`;
+  const initialDate = `${splitDate[0]}/${splitDate[1] <= 10 ? "0" : ""}${
+    splitDate[1] - 1
+  }/${splitDate[2]}`;
 
   return (
     <Grid

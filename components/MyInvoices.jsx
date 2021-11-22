@@ -11,7 +11,10 @@ export default function MyInvoices(props) {
 
   let [isToggled, setIsToggled] = useState([false, props.invoiceIds[0]]);
   console.log("is toggled ? " + isToggled[0] + " " + isToggled[1]);
-
+  const buttonBorder = {
+    selected: "2px solid rgba(10, 165, 171, 0.4)",
+    notSelected: "none",
+  };
   return (
     <Grid
       container
@@ -40,7 +43,7 @@ export default function MyInvoices(props) {
         <Typography
           align="left"
           sx={{
-            paddingTop: "1rem",
+            padding: "1rem 0 0 1rem",
             alignSelf: "flex-start",
           }}
         >
@@ -66,8 +69,8 @@ export default function MyInvoices(props) {
                 onClick={() =>
                   setIsToggled(
                     !isToggled[0]
-                      ? [isToggled[0], number]
-                      : [!isToggled[0], number]
+                      ? [isToggled[0], number, buttonBorder.notSelected]
+                      : [!isToggled[0], number, buttonBorder.selected]
                   )
                 }
                 key={number.id}
@@ -75,8 +78,8 @@ export default function MyInvoices(props) {
                 price={number.price}
                 status={number.status}
                 date={number.date}
-                color={number.statusColor}
                 href={`/invoices/${number.id}`}
+                border={buttonBorder}
               />
             );
           })

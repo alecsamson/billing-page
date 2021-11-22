@@ -47,14 +47,13 @@ export default function InvoiceCard(props) {
     <Grid
       container
       onClick={isBelowThreshold ? () => push(props.href) : props.onClick}
-      sx={{ width: "100%" }}
+      sx={{ width: "100%", border: props.state ? "none" : props.border }}
     >
       <Grid
         item
         container
         sx={{
           p: 2,
-
           margin: "auto",
           boxShadow: 1,
           position: "relative",
