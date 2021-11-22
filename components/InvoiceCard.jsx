@@ -1,10 +1,9 @@
-import { Grid, Typography, Container } from "@mui/material";
+import { Grid, Typography, Container, Box } from "@mui/material";
 import { useRouter } from "next/router";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
 export default function InvoiceCard(props) {
-  // const splitDate = props.date.split("/");
   const months = [
     "January",
     "February",
@@ -53,7 +52,8 @@ export default function InvoiceCard(props) {
         sx={{
           p: 2,
           margin: "auto",
-          maxWidth: "100%",
+          // width: "100%",
+          width: "661px",
           boxShadow: 1,
           position: "relative",
           background: "#ffffff",
