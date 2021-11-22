@@ -9,13 +9,13 @@ import { useTheme } from "@mui/material/styles";
 
 export default function DesktopSidebar() {
   const theme = useTheme();
-  const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
+  const isBelowThreshold = useMediaQuery(theme.breakpoints.down("lg"));
 
   return (
     <Grid
       container
       sx={{
-        display: { xs: "none", md: "flex" },
+        display: { xs: "none", lg: "flex" },
         width: isBelowThreshold ? 0 : "15rem",
         position: "fixed",
         flexDirection: "column",

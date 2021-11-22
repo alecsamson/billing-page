@@ -11,7 +11,7 @@ import { useTheme } from "@mui/material/styles";
 export default function Home(props) {
   const theme = useTheme();
 
-  const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
+  const isBelowThreshold = useMediaQuery(theme.breakpoints.down("lg"));
 
   return (
     <Grid container sx={{ height: "100%", width: "100%" }}>

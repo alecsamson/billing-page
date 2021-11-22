@@ -6,7 +6,7 @@ import { useTheme } from "@mui/material/styles";
 
 export default function BillingHeader() {
   const theme = useTheme();
-  const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
+  const isBelowThreshold = useMediaQuery(theme.breakpoints.down("lg"));
   return (
     <Grid
       item

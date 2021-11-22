@@ -7,7 +7,7 @@ import { useState } from "react";
 
 export default function MyInvoices(props) {
   const theme = useTheme();
-  const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
+  const isBelowThreshold = useMediaQuery(theme.breakpoints.down("lg"));
 
   let [isToggled, setIsToggled] = useState([false, props.invoiceIds[0]]);
   console.log("is toggled ? " + isToggled[0] + " " + isToggled[1]);
@@ -26,7 +26,7 @@ export default function MyInvoices(props) {
         item
         container
         direction="column"
-        md={isToggled[0] ? 12 : 8}
+        lg={isToggled[0] ? 12 : 8}
         sx={{
           flexGrow: isToggled[0] ? 4 : 0,
           padding: "0 24px 0 24px",
@@ -83,7 +83,7 @@ export default function MyInvoices(props) {
       </Grid>
 
       {!isToggled[0] && !isBelowThreshold && (
-        <Grid item md={4} sx={{ paddingRight: "1.5rem", maxWidth: "345px" }}>
+        <Grid item lg={4} sx={{ paddingRight: "1.5rem", maxWidth: "345px" }}>
           <DesktopInvoiceCard
             onClick={() => setIsToggled([!isToggled[0]])}
             key={isToggled[1].id}

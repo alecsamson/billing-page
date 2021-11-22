@@ -42,7 +42,7 @@ export default function InvoiceCard(props) {
       ? "overdue"
       : null;
 
-  const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
+  const isBelowThreshold = useMediaQuery(theme.breakpoints.down("lg"));
   return (
     <Grid
       container

@@ -19,7 +19,7 @@ export default function Billing(props = null) {
         .reduce((prev, curr) => Number(prev) + Number(curr))
     : 0;
   const theme = useTheme();
-  const isBelowThreshold = useMediaQuery(theme.breakpoints.down("md"));
+  const isBelowThreshold = useMediaQuery(theme.breakpoints.down("lg"));
   return (
     <>
       <Grid
