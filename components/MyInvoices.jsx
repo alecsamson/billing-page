@@ -9,8 +9,13 @@ export default function MyInvoices(props) {
   const theme = useTheme();
   const isBelowThreshold = useMediaQuery(theme.breakpoints.down("lg"));
 
-  let [isToggled, setIsToggled] = useState([false, props.invoiceIds[0]]);
-  console.log("is toggled ? " + isToggled[0] + " " + isToggled[1]);
+  let [isToggled, setIsToggled] = useState({
+    status: false,
+    invoice: props.invoiceIds[0],
+    border: "none",
+  });
+  // console.log("is toggled ? " + isToggled[0] + " " + isToggled[1]);
+
   const buttonBorder = {
     selected: "2px solid rgba(10, 165, 171, 0.4)",
     notSelected: "none",
@@ -21,7 +26,7 @@ export default function MyInvoices(props) {
       container
       lg={12}
       sx={{
-        justifyContent: isToggled[0] ? "center" : "space-between",
+        justifyContent: isToggled.status ? "center" : "space-between",
         background: "#f2f5f8",
         height: props.invoiceIds.length < 0 ? "100vh" : "auto",
       }}
@@ -30,11 +35,11 @@ export default function MyInvoices(props) {
         item
         container
         direction="column"
-        lg={isToggled[0] ? 7 : 8}
+        lg={isToggled.status ? 7 : 8}
         sx={{
           padding: "0 24px 0 24px",
           alignItems: "center",
-          maxWidth: isToggled[0] ? "661px" : "100%",
+          maxWidth: isToggled.status ? "661px" : "100%",
 
           background: "#f2f5f8",
           paddingBottom: isBelowThreshold ? "32px" : "64px",
@@ -66,13 +71,21 @@ export default function MyInvoices(props) {
           props.invoiceIds.map((number) => {
             return (
               <InvoiceCard
-                state={isToggled[0]}
-                selectedInvoice={isToggled[1].id}
+                state={isToggled.status}
+                selectedInvoice={isToggled.invoice.id}
                 onClick={() =>
                   setIsToggled(
-                    !isToggled[0]
-                      ? [isToggled[0], number]
-                      : [!isToggled[0], number]
+                    !isToggled.status
+                      ? {
+                          status: isToggled.status,
+                          invoice: number,
+                          border: "none",
+                        }
+                      : {
+                          status: !isToggled.status,
+                          invoice: isToggled.invoice,
+                          border: "none",
+                        }
                   )
                 }
                 key={number.id}
@@ -88,15 +101,21 @@ export default function MyInvoices(props) {
         )}
       </Grid>
 
-      {!isToggled[0] && !isBelowThreshold && (
+      {!isToggled.status && !isBelowThreshold && (
         <Grid item lg={4} sx={{ paddingRight: "1.5rem", maxWidth: "345px" }}>
           <DesktopInvoiceCard
-            onClick={() => setIsToggled([!isToggled[0]])}
-            key={isToggled[1].id}
-            id={isToggled[1].id}
-            price={isToggled[1].price}
-            status={isToggled[1].status}
-            date={isToggled[1].date}
+            onClick={() => {
+              setIsToggled({
+                status: !isToggled.status,
+                invoice: isToggled.invoice,
+                border: "none",
+              });
+            }}
+            key={isToggled.invoice.id}
+            id={isToggled.invoice.id}
+            price={isToggled.invoice.price}
+            status={isToggled.invoice.status}
+            date={isToggled.invoice.date}
           />
         </Grid>
       )}
