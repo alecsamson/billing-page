@@ -17,6 +17,7 @@ export default function MyInvoices(props) {
   };
   return (
     <Grid
+      item
       container
       lg={12}
       sx={{
@@ -66,11 +67,12 @@ export default function MyInvoices(props) {
             return (
               <InvoiceCard
                 state={isToggled[0]}
+                selectedInvoice={isToggled[1].id}
                 onClick={() =>
                   setIsToggled(
                     !isToggled[0]
-                      ? [isToggled[0], number, buttonBorder.notSelected]
-                      : [!isToggled[0], number, buttonBorder.selected]
+                      ? [isToggled[0], number]
+                      : [!isToggled[0], number]
                   )
                 }
                 key={number.id}
