@@ -5,7 +5,7 @@ import EuroIcon from "@mui/icons-material/Euro";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
-export default function Billing(props = null) {
+export default function Billing(props) {
   const splitDate = props.invoiceIds.length
     ? props.invoiceIds[0].date.split("/")
     : 0;
@@ -13,11 +13,12 @@ export default function Billing(props = null) {
     props.invoiceIds && splitDate[1] <= 12
       ? `${splitDate[0]}/${Number(splitDate[1]) + 1}/${splitDate[2]}`
       : 0;
-  const accountBalance = props.invoiceIds.length
-    ? props.invoiceIds
-        .map((obj) => (obj.status == "due" ? obj.price : 0))
-        .reduce((prev, curr) => Number(prev) + Number(curr))
-    : 0;
+  const accountBalance =
+    props.invoiceIds.length > 0
+      ? props.invoiceIds
+          .map((obj) => (obj.status == "due" ? obj.price : 0))
+          .reduce((prev, curr) => Number(prev) + Number(curr))
+      : 0;
   const theme = useTheme();
   const isBelowThreshold = useMediaQuery(theme.breakpoints.down("lg"));
   return (
@@ -49,13 +50,13 @@ export default function Billing(props = null) {
               sx={{ alignItems: "center", justifyContent: "center" }}
             >
               <Typography variant="h4">
-                {props.invoiceIds.length ? accountBalance : 0}
+                {props.invoiceIds.length > 0 ? accountBalance : 0}
               </Typography>
               <EuroIcon fontSize="large" />
             </Grid>
           </Grid>
 
-          {isBelowThreshold && props.invoiceIds.length ? (
+          {isBelowThreshold && props.invoiceIds.length > 0 ? (
             <BillingCard invoice={props.invoiceIds} />
           ) : null}
 
@@ -80,7 +81,7 @@ export default function Billing(props = null) {
           </Grid>
         </Grid>
 
-        {!isBelowThreshold && props.invoiceIds.length ? (
+        {!isBelowThreshold && props.invoiceIds.length > 0 ? (
           <Grid item>
             <BillingCard invoice={props.invoiceIds} />
           </Grid>

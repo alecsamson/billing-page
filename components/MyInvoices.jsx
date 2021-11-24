@@ -9,7 +9,7 @@ export default function MyInvoices(props) {
   const theme = useTheme();
   const isBelowThreshold = useMediaQuery(theme.breakpoints.down("lg"));
 
-  let [isToggled, setIsToggled] = useState({
+  let [toggleSwitch, setIsToggled] = useState({
     status: false,
     invoice: props.invoiceIds[0],
     border: "none",
@@ -21,7 +21,7 @@ export default function MyInvoices(props) {
       container
       lg={12}
       sx={{
-        justifyContent: isToggled.status ? "center" : "space-between",
+        justifyContent: !toggleSwitch.status ? "space-between" : "center",
         background: "#f2f5f8",
         height: props.invoiceIds.length < 0 ? "100vh" : "auto",
       }}
@@ -30,11 +30,11 @@ export default function MyInvoices(props) {
         item
         container
         direction="column"
-        lg={isToggled.status ? 7 : 8}
+        lg={toggleSwitch.status ? 7 : 8}
         sx={{
           padding: "0 24px 0 24px",
           alignItems: "center",
-          maxWidth: isToggled.status ? "661px" : "100%",
+          maxWidth: toggleSwitch.status ? "100%" : "661px",
 
           background: "#f2f5f8",
           paddingBottom: isBelowThreshold ? "32px" : "64px",
@@ -66,19 +66,19 @@ export default function MyInvoices(props) {
           props.invoiceIds.map((number) => {
             return (
               <InvoiceCard
-                selectedInvoice={isToggled.invoice.id}
-                selectedBorder={isToggled.border}
+                selectedInvoice={toggleSwitch.invoice.id}
+                selectedBorder={toggleSwitch.border}
                 onClick={() =>
                   setIsToggled(
-                    !isToggled.status
+                    !toggleSwitch.status
                       ? {
-                          status: isToggled.status,
+                          status: toggleSwitch.status,
                           invoice: number,
                           border: "2px solid rgba(10, 165, 171, 0.4)",
                         }
                       : {
-                          status: !isToggled.status,
-                          invoice: isToggled.invoice,
+                          status: !toggleSwitch.status,
+                          invoice: number,
                           border: "2px solid rgba(10, 165, 171, 0.4)",
                         }
                   )
@@ -95,21 +95,21 @@ export default function MyInvoices(props) {
         )}
       </Grid>
 
-      {!isToggled.status && !isBelowThreshold && (
+      {!toggleSwitch.status && !isBelowThreshold && (
         <Grid item lg={4} sx={{ paddingRight: "1.5rem", maxWidth: "345px" }}>
           <DesktopInvoiceCard
             onClick={() => {
               setIsToggled({
-                status: !isToggled.status,
-                invoice: isToggled.invoice,
+                status: !toggleSwitch.status,
+                invoice: toggleSwitch.invoice,
                 border: "none",
               });
             }}
-            key={isToggled.invoice.id}
-            id={isToggled.invoice.id}
-            price={isToggled.invoice.price}
-            status={isToggled.invoice.status}
-            date={isToggled.invoice.date}
+            key={toggleSwitch.invoice.id}
+            id={toggleSwitch.invoice.id}
+            price={toggleSwitch.invoice.price}
+            status={toggleSwitch.invoice.status}
+            date={toggleSwitch.invoice.date}
           />
         </Grid>
       )}
