@@ -23,7 +23,7 @@ export default function MyInvoices(props) {
       sx={{
         justifyContent: !toggleSwitch.status ? "space-between" : "center",
         background: "#f2f5f8",
-        height: props.invoiceIds.length < 0 ? "100vh" : "auto",
+        height: !props.invoiceIds.length > 0 ? "100vh" : "auto",
       }}
     >
       <Grid
@@ -51,13 +51,14 @@ export default function MyInvoices(props) {
           <strong>My invoices</strong>
         </Typography>
 
-        {props.invoiceIds.length < 0 ? (
+        {!props.invoiceIds.length > 0 ? (
           <Typography
             sx={{
+              display: "flex",
               padding: "0 0 0 1rem",
               color: "#6c7881",
-              textAlign: "left",
-              paddingLeft: isBelowThreshold ? "10%" : "18%",
+              // textAlign: "left",
+              // paddingLeft: isBelowThreshold ? "10%" : "18%",
             }}
           >
             There are no invoices available!
