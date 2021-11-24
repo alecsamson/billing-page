@@ -10,7 +10,7 @@ export default function MyInvoices(props) {
   const isBelowThreshold = useMediaQuery(theme.breakpoints.down("lg"));
 
   let [toggleSwitch, setIsToggled] = useState({
-    status: false,
+    status: true,
     invoice: props.invoiceIds[0],
     border: "none",
   });
