@@ -4,6 +4,7 @@ import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import "../styles/globals.css";
+import axios from "axios";
 const theme = createTheme();
 
 const invoiceNumbers = [
@@ -53,6 +54,15 @@ const invoiceNumbers = [
 
 function BillingApp({ Component, pageProps }) {
   React.useEffect(() => {
+    axios.get("/api/").then((response) => {
+      console.log(response.data);
+    });
+    // const api = axios.create({
+    //   baseURL: `http://localhost:5000`,
+    // });
+    // api.get("/").then((res) => {
+    //   console.log(res.data);
+    // });
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector("#jss-server-side");
     if (jssStyles) {
