@@ -67,7 +67,9 @@ export default function MyInvoices(props) {
           props.invoiceIds.map((number) => {
             return (
               <InvoiceCard
-                selectedInvoice={toggleSwitch.invoice.id}
+                selectedInvoice={
+                  toggleSwitch.invoice ? toggleSwitch.invoice.id : null
+                }
                 selectedBorder={toggleSwitch.border}
                 onClick={() =>
                   setIsToggled(
