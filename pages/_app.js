@@ -51,15 +51,16 @@ const invoiceNumbers = [
     date: "21/06/2021",
   },
 ];
-
+// const api = axios.create({
+//   baseURL: `http://localhost:5000`,
+// });
+axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
 function BillingApp({ Component, pageProps }) {
   React.useEffect(() => {
-    axios.get("/api/").then((response) => {
+    axios.get("/api").then((response) => {
       console.log(response.data);
     });
-    // const api = axios.create({
-    //   baseURL: `http://localhost:5000`,
-    // });
+
     // api.get("/").then((res) => {
     //   console.log(res.data);
     // });
